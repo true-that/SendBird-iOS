@@ -2,12 +2,15 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:SendBird-iOS.xcodeproj">
+      location = "group:/Users/ohad/AppcodeProjects/SendBird-iOS/sample-swift/Truedat.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:HTMLKit/HTMLKit.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Truedat.xcodeproj">
    </FileRef>
 </Workspace>
