@@ -1,39 +1,69 @@
 PODS:
+  - AffdexSDK-iOS (4.0.1):
+    - AWSKinesis
   - Alamofire (4.5.1)
   - AlamofireImage (3.3.0):
     - Alamofire (~> 4.5)
+  - Appsee (2.3.6)
+  - AWSCore (2.6.6)
+  - AWSKinesis (2.6.6):
+    - AWSCore (= 2.6.6)
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
+  - Fabric (1.7.2)
   - FLAnimatedImage (1.0.12)
-  - MGSwipeTableCell (1.6.4)
-  - NYTPhotoViewer (1.1.0):
-    - NYTPhotoViewer/AnimatedGifSupport (= 1.1.0)
-    - NYTPhotoViewer/Core (= 1.1.0)
-  - NYTPhotoViewer/AnimatedGifSupport (1.1.0):
-    - FLAnimatedImage (~> 1.0.8)
+  - MGSwipeTableCell (1.6.6)
+  - NYTPhotoViewer (1.2.0):
+    - NYTPhotoViewer/AnimatedGifSupport (= 1.2.0)
+    - NYTPhotoViewer/Core (= 1.2.0)
+  - NYTPhotoViewer/AnimatedGifSupport (1.2.0):
+    - FLAnimatedImage (~> 1.0.12)
     - NYTPhotoViewer/Core
-  - NYTPhotoViewer/Core (1.1.0)
+  - NYTPhotoViewer/Core (1.2.0)
+  - PhoneNumberKit (2.0.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 2.0.0)
+    - PhoneNumberKit/UIKit (= 2.0.0)
+  - PhoneNumberKit/PhoneNumberKitCore (2.0.0)
+  - PhoneNumberKit/UIKit (2.0.0):
+    - PhoneNumberKit/PhoneNumberKitCore
   - RSKImageCropper (1.6.3)
   - SendBirdSDK (3.0.73)
+  - SwiftyBeaver (1.4.3)
   - TTTAttributedLabel (2.0.0)
 
 DEPENDENCIES:
+  - AffdexSDK-iOS
   - AlamofireImage
-  - FLAnimatedImage (~> 1.0)
+  - Appsee
+  - Crashlytics
+  - Fabric
+  - FLAnimatedImage
   - MGSwipeTableCell
-  - NYTPhotoViewer (~> 1.1.0)
+  - NYTPhotoViewer
+  - PhoneNumberKit
   - RSKImageCropper
-  - SendBirdSDK (~> 3.0)
+  - SendBirdSDK
+  - SwiftyBeaver
   - TTTAttributedLabel
 
 SPEC CHECKSUMS:
+  AffdexSDK-iOS: 46f04df6a0259957190f3a592ccd0b33367b3d66
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   AlamofireImage: 2e784dc5d00f04903a52c1d169181469c805c3df
+  Appsee: 8b3eab549f4701befe537cab4aefd175421f6328
+  AWSCore: 64619e45b47678afab53ca0f9b4fa380ebee6f0b
+  AWSKinesis: b638cef07832fd966fe18d9bb9488dea0ffa70dd
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
+  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
-  MGSwipeTableCell: 8b422e0c1c0b6f1adb49265be86bf4a474b6b516
-  NYTPhotoViewer: e80e8767f3780d2df37c6f72cbab15d6c7232911
+  MGSwipeTableCell: c3bc6e261e7bc06c112909fe3fb8205de286082c
+  NYTPhotoViewer: 323217e4590a1586eb3c9674b3fefb0fb8b57896
+  PhoneNumberKit: 073b3cef30c2a64ddcd623ea5953bc84bb5b3fc4
   RSKImageCropper: 356e36fc58c57c371b5d8b23d603936d6a73df6c
   SendBirdSDK: 4b94942fb38558c4e4856e588af9f3d9f4720e2c
+  SwiftyBeaver: e10b1668e0512229c36c34769b97eed3dfae2ca3
   TTTAttributedLabel: 8cffe8e127e4e82ff3af1e5386d4cd0ad000b656
 
-PODFILE CHECKSUM: 9cbb42b5354bc4dc8b079e49148c24287caf665f
+PODFILE CHECKSUM: c808803a9ead40a69ce9b6cf83077416770d2e5d
 
 COCOAPODS: 1.3.1
