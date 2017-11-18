@@ -11,18 +11,17 @@ import NYTPhotoViewer
 
 class ChatImage: NSObject, NYTPhoto {
 
-    var image: UIImage?
-    var imageData: Data?
-    var placeholderImage: UIImage?
-    var attributedCaptionTitle: NSAttributedString?
-    var attributedCaptionSummary: NSAttributedString?
-    var attributedCaptionCredit: NSAttributedString?
-    
-    init(image: UIImage? = nil, imageData: NSData? = nil) {
-        super.init()
-        
-        self.image = image
-        self.imageData = imageData as Data?
-    }
-    
+  var image: UIImage?
+  var imageData: Data?
+  var placeholderImage: UIImage?
+  var attributedCaptionTitle: NSAttributedString?
+  var attributedCaptionSummary: NSAttributedString?
+  var attributedCaptionCredit: NSAttributedString?
+
+  init(image: UIImage? = nil, imageData: NSData? = nil) {
+    super.init()
+
+    self.image = image
+    self.imageData = imageData as Data?
+  }
 }

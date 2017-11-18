@@ -43,13 +43,16 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
     let isRegisteredForRemoteNotifications = UIApplication.shared.isRegisteredForRemoteNotifications
     self.pushNotificationSwitch.isOn = isRegisteredForRemoteNotifications
   }
+
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+
   func close() {
     self.dismiss(animated: false, completion: nil)
   }
+
   func save() {
     if self.nicknameTextField.text?.trimmingCharacters(in: CharacterSet.whitespaces).characters.count == 0 {
       return
@@ -59,12 +62,11 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
     let isRegisteredForRemoteNotifications = self.pushNotificationSwitch.isOn
     if isRegisteredForRemoteNotifications {
       UIApplication.shared.registerForRemoteNotifications()
-      SBDMain.updateCurrentUserInfo(withNickname: self.nicknameTextField.text?.trimmingCharacters(in: CharacterSet.whitespaces), profileImage: self.profileImageData, completionHandler: { (error) in
+      SBDMain.updateCurrentUserInfo(withNickname: self.nicknameTextField.text?.trimmingCharacters(in: CharacterSet.whitespaces), profileImage: self.profileImageData, completionHandler: { error in
         var hasUpdatedUserInfo: Bool?
         if error != nil {
           hasUpdatedUserInfo = false
-        }
-        else {
+        } else {
           let imageDownloader = UIImageView.af_sharedImageDownloader
           let urlCache = imageDownloader.sessionManager.session.configuration.urlCache
           urlCache?.removeAllCachedResponses()
@@ -72,12 +74,11 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
           hasUpdatedUserInfo = true
         }
         #if !(arch(i386) || arch(x86_64))
-          SBDMain.registerDevicePushToken(SBDMain.getPendingPushToken()!, unique: true, completionHandler: { (status, error) in
+          SBDMain.registerDevicePushToken(SBDMain.getPendingPushToken()!, unique: true, completionHandler: { status, error in
             var hasUpdatedPushNoti: Bool?
             if error != nil {
               hasUpdatedPushNoti = false
-            }
-            else {
+            } else {
               hasUpdatedPushNoti = true
             }
             if hasUpdatedUserInfo == false || hasUpdatedPushNoti == false {
@@ -92,8 +93,7 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
               DispatchQueue.main.async {
                 self.present(vc, animated: true, completion: nil)
               }
-            }
-            else {
+            } else {
               self.dismiss(animated: true, completion: nil)
             }
           })
@@ -110,21 +110,18 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
             DispatchQueue.main.async {
               self.present(vc, animated: true, completion: nil)
             }
-          }
-          else {
+          } else {
             self.dismiss(animated: true, completion: nil)
           }
         #endif
       })
-    }
-    else {
+    } else {
       UIApplication.shared.unregisterForRemoteNotifications()
-      SBDMain.updateCurrentUserInfo(withNickname: self.nicknameTextField.text?.trimmingCharacters(in: CharacterSet.whitespaces), profileImage: self.profileImageData, completionHandler: { (error) in
+      SBDMain.updateCurrentUserInfo(withNickname: self.nicknameTextField.text?.trimmingCharacters(in: CharacterSet.whitespaces), profileImage: self.profileImageData, completionHandler: { error in
         var hasUpdatedUserInfo: Bool?
         if error != nil {
           hasUpdatedUserInfo = false
-        }
-        else {
+        } else {
           let imageDownloader = UIImageView.af_sharedImageDownloader
           let urlCache = imageDownloader.sessionManager.session.configuration.urlCache
           urlCache?.removeAllCachedResponses()
@@ -132,12 +129,11 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
           hasUpdatedUserInfo = true
         }
         #if !(arch(i386) || arch(x86_64))
-          SBDMain.unregisterPushToken(SBDMain.getPendingPushToken()!, completionHandler: { (response, error) in
+          SBDMain.unregisterPushToken(SBDMain.getPendingPushToken()!, completionHandler: { response, error in
             var hasUpdatedPushNoti: Bool?
             if error != nil {
               hasUpdatedPushNoti = false
-            }
-            else {
+            } else {
               hasUpdatedPushNoti = true
             }
             if hasUpdatedUserInfo == false || hasUpdatedPushNoti == false {
@@ -152,8 +148,7 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
               DispatchQueue.main.async {
                 self.present(vc, animated: true, completion: nil)
               }
-            }
-            else {
+            } else {
               self.dismiss(animated: true, completion: nil)
             }
           })
@@ -170,14 +165,14 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
             DispatchQueue.main.async {
               self.present(vc, animated: true, completion: nil)
             }
-          }
-          else {
+          } else {
             self.dismiss(animated: true, completion: nil)
           }
         #endif
       })
     }
   }
+
   func clickProfileImage() {
     let mediaUI = UIImagePickerController()
     mediaUI.sourceType = UIImagePickerControllerSourceType.photoLibrary
@@ -186,8 +181,9 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
     mediaUI.delegate = self
     self.present(mediaUI, animated: true, completion: nil)
   }
-  //MARK: UIImagePickerControllerDelegate
-  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+
+  // MARK: UIImagePickerControllerDelegate
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
     let mediaType = info[UIImagePickerControllerMediaType] as! String
     picker.dismiss(animated: true) {
       if CFStringCompare(mediaType as CFString, kUTTypeImage, []) == CFComparisonResult.compareEqualTo {
@@ -195,9 +191,11 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
       }
     }
   }
+
   func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
     picker.dismiss(animated: true, completion: nil)
   }
+
   func cropImage(imageData: Data) {
     let image = UIImage(data: imageData)
     let imageCropVC: RSKImageCropViewController = RSKImageCropViewController(image: image!)
@@ -205,21 +203,24 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
     imageCropVC.cropMode = RSKImageCropMode.square
     self.present(imageCropVC, animated: false, completion: nil)
   }
-  //MARK: RSKImageCropViewControllerDelegate
+
+  // MARK: RSKImageCropViewControllerDelegate
   // Crop image has been canceled.
   func imageCropViewControllerDidCancelCrop(_ controller: RSKImageCropViewController) {
     controller.dismiss(animated: false, completion: nil)
   }
+
   // The original image has been cropped.
   func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect) {
     self.profileImageView.image = croppedImage
   }
+
   // The original image has been cropped. Additionally provides a rotation angle used to produce image.
   func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {
     self.profileImageView.image = croppedImage
     var imageData = UIImageJPEGRepresentation(croppedImage, 0.9)
     var resizedImage = croppedImage
-    while imageData!.count > 5 * 1024 * 1024 {// 5MB
+    while imageData!.count > 5 * 1024 * 1024 { // 5MB
       let newSize = CGSize(width: resizedImage.size.width / 2, height: resizedImage.size.height / 2)
       UIGraphicsBeginImageContextWithOptions(newSize, false, 0.5)
       resizedImage.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: newSize.width, height: newSize.height)))
@@ -230,6 +231,7 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
     self.profileImageData = imageData
     controller.dismiss(animated: false, completion: nil)
   }
+
   // The original image will be cropped.
   func imageCropViewController(_ controller: RSKImageCropViewController, willCropImage originalImage: UIImage) {
     // Use when `applyMaskToCroppedImage` set to YES.

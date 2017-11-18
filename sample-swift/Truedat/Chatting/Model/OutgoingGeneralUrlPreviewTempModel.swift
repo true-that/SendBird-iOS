@@ -10,5 +10,5 @@ import UIKit
 import SendBirdSDK
 
 class OutgoingGeneralUrlPreviewTempModel: SBDBaseMessage {
-    var message: String?
+  var message: String?
 }
