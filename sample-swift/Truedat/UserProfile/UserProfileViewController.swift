@@ -187,7 +187,7 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
     let mediaType = info[UIImagePickerControllerMediaType] as! String
     picker.dismiss(animated: true) {
       if CFStringCompare(mediaType as CFString, kUTTypeImage, []) == CFComparisonResult.compareEqualTo {
-        self.cropImage(imageData: UIImageJPEGRepresentation(info[UIImagePickerControllerOriginalImage] as! UIImage, 0.9)!)
+        self.cropImage(imageData: UIImageJPEGRepresentation(info[UIImagePickerControllerOriginalImage] as! UIImage, 0.8)!)
       }
     }
   }
