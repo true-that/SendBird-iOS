@@ -29,12 +29,12 @@ class MenuViewController: UIViewController, SBDConnectionDelegate {
 
     let negativeRightSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
     negativeRightSpacer.width = -2
-    let rightDisconnectItem = UIBarButtonItem(title: Bundle.sbLocalizedStringForKey(key: "DisconnectButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(disconnect))
+    let rightDisconnectItem = UIBarButtonItem(title: Bundle.truedatLocalizedStringForKey(key: "DisconnectButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(disconnect))
     rightDisconnectItem.setTitleTextAttributes([NSFontAttributeName: Constants.navigationBarButtonItemFont()], for: UIControlState.normal)
 
     let negativeLeftSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
     negativeLeftSpacer.width = -2
-    let leftProfileItem = UIBarButtonItem(title: Bundle.sbLocalizedStringForKey(key: "Profile"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(profile))
+    let leftProfileItem = UIBarButtonItem(title: Bundle.truedatLocalizedStringForKey(key: "Profile"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(profile))
     leftProfileItem.setTitleTextAttributes([NSFontAttributeName: Constants.navigationBarButtonItemFont()], for: UIControlState.normal)
 
     self.navItem.rightBarButtonItems = [negativeRightSpacer, rightDisconnectItem]

@@ -98,8 +98,8 @@ class ViewController: UITableViewController, UITextFieldDelegate {
             self.indicatorView.stopAnimating()
           }
 
-          let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-          let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+          let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+          let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
           vc.addAction(closeAction)
           DispatchQueue.main.async {
             self.present(vc, animated: true, completion: nil)
@@ -131,8 +131,8 @@ class ViewController: UITableViewController, UITextFieldDelegate {
           }
 
           if error != nil {
-            let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-            let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+            let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+            let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
             vc.addAction(closeAction)
             DispatchQueue.main.async {
               self.present(vc, animated: true, completion: nil)

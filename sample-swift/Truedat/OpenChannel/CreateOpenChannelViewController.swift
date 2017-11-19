@@ -32,7 +32,7 @@ class CreateOpenChannelViewController: UIViewController, UITextFieldDelegate {
     legativeRightSpacer.width = -2
 
     let leftItem = UIBarButtonItem(image: UIImage(named: "btn_close"), style: UIBarButtonItemStyle.done, target: self, action: #selector(closeViewController))
-    let rightItem = UIBarButtonItem(title: Bundle.sbLocalizedStringForKey(key: "CreateButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(createOpenChannel))
+    let rightItem = UIBarButtonItem(title: Bundle.truedatLocalizedStringForKey(key: "CreateButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(createOpenChannel))
     rightItem.setTitleTextAttributes([NSFontAttributeName: Constants.navigationBarButtonItemFont()], for: UIControlState.normal)
 
     self.navItem.leftBarButtonItems = [legativeLeftSpacer, leftItem]
@@ -59,8 +59,8 @@ class CreateOpenChannelViewController: UIViewController, UITextFieldDelegate {
 
     SBDOpenChannel.createChannel(withName: self.openChannelNameTextField.text, coverUrl: nil, data: nil, operatorUsers: nil) { channel, error in
       if error != nil {
-        let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-        let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+        let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+        let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
         vc.addAction(closeAction)
         DispatchQueue.main.async {
           self.present(vc, animated: true, completion: nil)
@@ -70,8 +70,8 @@ class CreateOpenChannelViewController: UIViewController, UITextFieldDelegate {
       }
 
       self.delegate?.refreshView(vc: self)
-      let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "OpenChannelCreatedTitle"), message: Bundle.sbLocalizedStringForKey(key: "OpenChannelCreatedMessage"), preferredStyle: UIAlertControllerStyle.alert)
-      let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: { action in
+      let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "OpenChannelCreatedTitle"), message: Bundle.truedatLocalizedStringForKey(key: "OpenChannelCreatedMessage"), preferredStyle: UIAlertControllerStyle.alert)
+      let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: { action in
         self.dismiss(animated: false, completion: nil)
       })
       vc.addAction(closeAction)

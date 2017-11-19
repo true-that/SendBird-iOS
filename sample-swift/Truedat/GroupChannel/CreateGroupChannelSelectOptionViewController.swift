@@ -38,7 +38,7 @@ class CreateGroupChannelSelectOptionViewController: UIViewController {
     negativeRightSpacer.width = -2
 
     let leftBackItem = UIBarButtonItem(image: UIImage(named: "btn_back"), style: UIBarButtonItemStyle.done, target: self, action: #selector(back))
-    let rightCreateItem = UIBarButtonItem(title: Bundle.sbLocalizedStringForKey(key: "CreateButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(createChannel))
+    let rightCreateItem = UIBarButtonItem(title: Bundle.truedatLocalizedStringForKey(key: "CreateButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(createChannel))
 
     self.navItem.leftBarButtonItems = [negativeLeftSpacer, leftBackItem]
     self.navItem.rightBarButtonItems = [negativeRightSpacer, rightCreateItem]
@@ -68,8 +68,8 @@ class CreateGroupChannelSelectOptionViewController: UIViewController {
   @objc private func createChannel() {
     SBDGroupChannel.createChannel(with: self.selectedUser, isDistinct: self.isDistinct) { channel, error in
       if error != nil {
-        let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-        let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: { action in
+        let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+        let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: { action in
 
         })
         vc.addAction(closeAction)

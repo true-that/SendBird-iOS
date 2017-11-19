@@ -86,11 +86,11 @@ class BlockedUserListViewController: UIViewController, UITableViewDelegate, UITa
 
   private func unblockUser(user: SBDUser) {
     let vc = UIAlertController(title: user.nickname, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-    let unblockUserAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "UnblockUserButton"), style: UIAlertActionStyle.default) { action in
+    let unblockUserAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "UnblockUserButton"), style: UIAlertActionStyle.default) { action in
       SBDMain.unblockUser(user, completionHandler: { error in
         if error != nil {
-          let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-          let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+          let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+          let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
           vc.addAction(closeAction)
           DispatchQueue.main.async {
             self.present(vc, animated: true, completion: nil)
@@ -104,7 +104,7 @@ class BlockedUserListViewController: UIViewController, UITableViewDelegate, UITa
         }
       })
     }
-    let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+    let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
     vc.addAction(unblockUserAction)
     vc.addAction(closeAction)
     self.present(vc, animated: true, completion: nil)

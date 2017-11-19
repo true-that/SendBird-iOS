@@ -180,7 +180,7 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
 
   @objc private func openMoreMenu() {
     let vc = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-    let seeParticipantListAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "SeeParticipantListButton"), style: UIAlertActionStyle.default) { action in
+    let seeParticipantListAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "SeeParticipantListButton"), style: UIAlertActionStyle.default) { action in
       DispatchQueue.main.async {
         let plvc = ParticipantListViewController()
         plvc.openChannel = self.openChannel
@@ -188,7 +188,7 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
         self.present(plvc, animated: false, completion: nil)
       }
     }
-    let seeBlockedUserListAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "SeeBlockedUserListButton"), style: UIAlertActionStyle.default) { action in
+    let seeBlockedUserListAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "SeeBlockedUserListButton"), style: UIAlertActionStyle.default) { action in
       DispatchQueue.main.async {
         let plvc = BlockedUserListViewController()
         plvc.baseChannel = self.openChannel
@@ -196,7 +196,7 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
         self.present(plvc, animated: false, completion: nil)
       }
     }
-    let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+    let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
     vc.addAction(seeParticipantListAction)
     vc.addAction(seeBlockedUserListAction)
     vc.addAction(closeAction)
@@ -614,7 +614,7 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
   func didStartReconnection() {
     if self.navItem.titleView != nil && self.navItem.titleView is UILabel {
       DispatchQueue.main.async {
-        (self.navItem.titleView as! UILabel).attributedText = Utils.generateNavigationTitle(mainTitle: String(format: "%@(%ld)", self.openChannel.name, self.openChannel.participantCount), subTitle: Bundle.sbLocalizedStringForKey(key: "ReconnectingSubTitle"))
+        (self.navItem.titleView as! UILabel).attributedText = Utils.generateNavigationTitle(mainTitle: String(format: "%@(%ld)", self.openChannel.name, self.openChannel.participantCount), subTitle: Bundle.truedatLocalizedStringForKey(key: "ReconnectingSubTitle"))
       }
     }
   }
@@ -626,7 +626,7 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
       if error == nil {
         DispatchQueue.main.async {
           if self.navItem.titleView != nil && self.navItem.titleView is UILabel {
-            (self.navItem.titleView as! UILabel).attributedText = Utils.generateNavigationTitle(mainTitle: String(format: "%@(%ld)", self.openChannel.name, self.openChannel.participantCount), subTitle: Bundle.sbLocalizedStringForKey(key: "ReconnectedSubTitle"))
+            (self.navItem.titleView as! UILabel).attributedText = Utils.generateNavigationTitle(mainTitle: String(format: "%@(%ld)", self.openChannel.name, self.openChannel.participantCount), subTitle: Bundle.truedatLocalizedStringForKey(key: "ReconnectedSubTitle"))
           }
 
           DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .seconds(1)) {
@@ -642,7 +642,7 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
   func didFailReconnection() {
     if self.navItem.titleView != nil && self.navItem.titleView is UILabel {
       DispatchQueue.main.async {
-        (self.navItem.titleView as! UILabel).attributedText = Utils.generateNavigationTitle(mainTitle: String(format: "%@(%ld)", self.openChannel.name, self.openChannel.participantCount), subTitle: Bundle.sbLocalizedStringForKey(key: "ReconnectionFailedSubTitle"))
+        (self.navItem.titleView as! UILabel).attributedText = Utils.generateNavigationTitle(mainTitle: String(format: "%@(%ld)", self.openChannel.name, self.openChannel.participantCount), subTitle: Bundle.truedatLocalizedStringForKey(key: "ReconnectionFailedSubTitle"))
       }
     }
   }
@@ -708,8 +708,8 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
   }
 
   func channelWasDeleted(_ channelUrl: String, channelType: SBDChannelType) {
-    let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ChannelDeletedTitle"), message: Bundle.sbLocalizedStringForKey(key: "ChannelDeletedMessage"), preferredStyle: UIAlertControllerStyle.alert)
-    let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel) { action in
+    let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ChannelDeletedTitle"), message: Bundle.truedatLocalizedStringForKey(key: "ChannelDeletedMessage"), preferredStyle: UIAlertControllerStyle.alert)
+    let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel) { action in
       self.close()
     }
     vc.addAction(closeAction)
@@ -763,12 +763,12 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
   // MARK: MessageDelegate
   func clickProfileImage(viewCell: UITableViewCell, user: SBDUser) {
     let vc = UIAlertController(title: user.nickname, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-    let startDistinctGroupChannel = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "OpenDistinctGroupChannel"), style: UIAlertActionStyle.default) { action in
+    let startDistinctGroupChannel = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "OpenDistinctGroupChannel"), style: UIAlertActionStyle.default) { action in
       SBDGroupChannel.createChannel(with: [user], isDistinct: true, completionHandler: { channel, error in
         if error != nil {
           DispatchQueue.main.async {
-            let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-            let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+            let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+            let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
             vc.addAction(closeAction)
             DispatchQueue.main.async {
               self.present(vc, animated: true, completion: nil)
@@ -785,12 +785,12 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
         }
       })
     }
-    let startNonDistinctGroupChannel = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "OpenNonDistinctGroupChannel"), style: UIAlertActionStyle.default) { action in
+    let startNonDistinctGroupChannel = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "OpenNonDistinctGroupChannel"), style: UIAlertActionStyle.default) { action in
       SBDGroupChannel.createChannel(with: [user], isDistinct: false, completionHandler: { channel, error in
         if error != nil {
           DispatchQueue.main.async {
-            let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-            let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+            let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+            let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
             vc.addAction(closeAction)
             DispatchQueue.main.async {
               self.present(vc, animated: true, completion: nil)
@@ -807,12 +807,12 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
         }
       })
     }
-    let blockUserAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "BlockUserButton"), style: UIAlertActionStyle.default) { action in
+    let blockUserAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "BlockUserButton"), style: UIAlertActionStyle.default) { action in
       SBDMain.blockUser(user, completionHandler: { blockedUser, error in
         if error != nil {
           DispatchQueue.main.async {
-            let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-            let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+            let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+            let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
             vc.addAction(closeAction)
             DispatchQueue.main.async {
               self.present(vc, animated: true, completion: nil)
@@ -823,8 +823,8 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
         }
 
         DispatchQueue.main.async {
-          let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "UserBlockedTitle"), message: String(format: Bundle.sbLocalizedStringForKey(key: "UserBlockedMessage"), user.nickname!), preferredStyle: UIAlertControllerStyle.alert)
-          let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+          let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "UserBlockedTitle"), message: String(format: Bundle.truedatLocalizedStringForKey(key: "UserBlockedMessage"), user.nickname!), preferredStyle: UIAlertControllerStyle.alert)
+          let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
           vc.addAction(closeAction)
           DispatchQueue.main.async {
             self.present(vc, animated: true, completion: nil)
@@ -832,7 +832,7 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
         }
       })
     }
-    let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+    let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
     vc.addAction(startDistinctGroupChannel)
     vc.addAction(startNonDistinctGroupChannel)
     vc.addAction(blockUserAction)
@@ -845,7 +845,7 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
 
   func clickMessage(view: UIView, message: SBDBaseMessage) {
     let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.actionSheet)
-    let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+    let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
     var deleteMessageAction: UIAlertAction?
     var openFileAction: UIAlertAction?
     var openURLsAction: [UIAlertAction] = []
@@ -864,11 +864,11 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
       } else {
         let sender = (message as! SBDUserMessage).sender
         if sender?.userId == SBDMain.getCurrentUser()?.userId {
-          deleteMessageAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "DeleteMessageButton"), style: UIAlertActionStyle.destructive, handler: { action in
+          deleteMessageAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "DeleteMessageButton"), style: UIAlertActionStyle.destructive, handler: { action in
             self.openChannel.delete(message, completionHandler: { error in
               if error != nil {
-                let alert = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-                let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+                let alert = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+                let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
                 alert.addAction(closeAction)
                 DispatchQueue.main.async {
                   self.present(alert, animated: true, completion: nil)
@@ -900,11 +900,11 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
       let url = fileMessage.url
 
       if sender?.userId == SBDMain.getCurrentUser()?.userId {
-        deleteMessageAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "DeleteMessageButton"), style: UIAlertActionStyle.destructive, handler: { action in
+        deleteMessageAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "DeleteMessageButton"), style: UIAlertActionStyle.destructive, handler: { action in
           self.openChannel.delete(fileMessage, completionHandler: { error in
             if error != nil {
-              let alert = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-              let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+              let alert = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+              let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
               alert.addAction(closeAction)
               DispatchQueue.main.async {
                 self.present(alert, animated: true, completion: nil)
@@ -1027,9 +1027,9 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
   }
 
   func clickResend(view: UIView, message: SBDBaseMessage) {
-    let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ResendFailedMessageTitle"), message: Bundle.sbLocalizedStringForKey(key: "ResendFailedMessageDescription"), preferredStyle: UIAlertControllerStyle.alert)
-    let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
-    let resendAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "ResendFailedMessageButton"), style: UIAlertActionStyle.default) { action in
+    let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ResendFailedMessageTitle"), message: Bundle.truedatLocalizedStringForKey(key: "ResendFailedMessageDescription"), preferredStyle: UIAlertControllerStyle.alert)
+    let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+    let resendAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "ResendFailedMessageButton"), style: UIAlertActionStyle.default) { action in
       if message is SBDUserMessage {
         let resendableUserMessage = message as! SBDUserMessage
         var targetLanguages: [String] = []
@@ -1081,8 +1081,8 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
                   self.chattingView.scrollToBottom(force: true)
                 }
 
-                let alert = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-                let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+                let alert = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+                let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
                 alert.addAction(closeAction)
                 DispatchQueue.main.async {
                   self.present(alert, animated: true, completion: nil)
@@ -1131,8 +1131,8 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
                 self.chattingView.scrollToBottom(force: true)
               }
 
-              let alert = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-              let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+              let alert = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+              let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
               alert.addAction(closeAction)
               DispatchQueue.main.async {
                 self.present(alert, animated: true, completion: nil)
@@ -1173,9 +1173,9 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
   }
 
   func clickDelete(view: UIView, message: SBDBaseMessage) {
-    let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "DeleteFailedMessageTitle"), message: Bundle.sbLocalizedStringForKey(key: "DeleteFailedMessageDescription"), preferredStyle: UIAlertControllerStyle.alert)
-    let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
-    let deleteAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "DeleteFailedMessageButton"), style: UIAlertActionStyle.destructive) { action in
+    let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "DeleteFailedMessageTitle"), message: Bundle.truedatLocalizedStringForKey(key: "DeleteFailedMessageDescription"), preferredStyle: UIAlertControllerStyle.alert)
+    let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+    let deleteAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "DeleteFailedMessageButton"), style: UIAlertActionStyle.destructive) { action in
       var requestId: String?
       if message is SBDUserMessage {
         requestId = (message as! SBDUserMessage).requestId

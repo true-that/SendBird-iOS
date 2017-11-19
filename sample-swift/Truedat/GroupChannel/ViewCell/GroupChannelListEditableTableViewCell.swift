@@ -132,13 +132,13 @@ class GroupChannelListEditableTableViewCell: MGSwipeTableCell {
     } else if self.channel.lastMessage is SBDFileMessage {
       let lastMessage = (self.channel.lastMessage as! SBDFileMessage)
       if lastMessage.type.hasPrefix("image") {
-        self.lastMessageLabel.text = Bundle.sbLocalizedStringForKey(key: "MessageSummaryImage")
+        self.lastMessageLabel.text = Bundle.truedatLocalizedStringForKey(key: "MessageSummaryImage")
       } else if lastMessage.type.hasPrefix("video") {
-        self.lastMessageLabel.text = Bundle.sbLocalizedStringForKey(key: "MessageSummaryVideo")
+        self.lastMessageLabel.text = Bundle.truedatLocalizedStringForKey(key: "MessageSummaryVideo")
       } else if lastMessage.type.hasPrefix("audio") {
-        self.lastMessageLabel.text = Bundle.sbLocalizedStringForKey(key: "MessageSummaryAudio")
+        self.lastMessageLabel.text = Bundle.truedatLocalizedStringForKey(key: "MessageSummaryAudio")
       } else {
-        self.lastMessageLabel.text = Bundle.sbLocalizedStringForKey(key: "MessageSummaryFile")
+        self.lastMessageLabel.text = Bundle.truedatLocalizedStringForKey(key: "MessageSummaryFile")
       }
       lastMessageTimestamp = Int64(lastMessage.createdAt)
     } else if self.channel.lastMessage is SBDAdminMessage {

@@ -101,7 +101,7 @@ class GroupChannelListViewController: UIViewController, UITableViewDelegate, UIT
     let negativeLeftSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
     negativeLeftSpacer.width = -2
 
-    let leftBackItem = UIBarButtonItem(title: Bundle.sbLocalizedStringForKey(key: "DoneButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(done))
+    let leftBackItem = UIBarButtonItem(title: Bundle.truedatLocalizedStringForKey(key: "DoneButton"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(done))
     leftBackItem.setTitleTextAttributes([NSFontAttributeName: Constants.navigationBarButtonItemFont()], for: UIControlState.normal)
 
     self.navItem.leftBarButtonItems = [negativeLeftSpacer, leftBackItem]
@@ -161,8 +161,8 @@ class GroupChannelListViewController: UIViewController, UITableViewDelegate, UIT
               self.refreshControl?.endRefreshing()
             }
 
-            let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-            let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+            let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+            let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
             vc.addAction(closeAction)
             DispatchQueue.main.async {
               self.present(vc, animated: true, completion: nil)
@@ -246,8 +246,8 @@ class GroupChannelListViewController: UIViewController, UITableViewDelegate, UIT
     var cell: UITableViewCell?
     if self.editableChannel == true {
       cell = tableView.dequeueReusableCell(withIdentifier: GroupChannelListEditableTableViewCell.cellReuseIdentifier()) as! GroupChannelListEditableTableViewCell?
-      let leaveButton = MGSwipeButton(title: Bundle.sbLocalizedStringForKey(key: "LeaveButton"), backgroundColor: Constants.leaveButtonColor())
-      let hideButton = MGSwipeButton(title: Bundle.sbLocalizedStringForKey(key: "HideButton"), backgroundColor: Constants.hideButtonColor())
+      let leaveButton = MGSwipeButton(title: Bundle.truedatLocalizedStringForKey(key: "LeaveButton"), backgroundColor: Constants.leaveButtonColor())
+      let hideButton = MGSwipeButton(title: Bundle.truedatLocalizedStringForKey(key: "HideButton"), backgroundColor: Constants.hideButtonColor())
 
       hideButton.titleLabel?.font = Constants.hideButtonFont()
       leaveButton.titleLabel?.font = Constants.leaveButtonFont()
@@ -286,8 +286,8 @@ class GroupChannelListViewController: UIViewController, UITableViewDelegate, UIT
       // Hide
       selectedChannel.hide(completionHandler: { error in
         if error != nil {
-          let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-          let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+          let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+          let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
           vc.addAction(closeAction)
           DispatchQueue.main.async {
             self.present(vc, animated: true, completion: nil)
@@ -307,8 +307,8 @@ class GroupChannelListViewController: UIViewController, UITableViewDelegate, UIT
       // Leave
       selectedChannel.leave(completionHandler: { error in
         if error != nil {
-          let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-          let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+          let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+          let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
           vc.addAction(closeAction)
           DispatchQueue.main.async {
             self.present(vc, animated: true, completion: nil)

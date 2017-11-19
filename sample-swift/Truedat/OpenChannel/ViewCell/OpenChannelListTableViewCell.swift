@@ -58,9 +58,9 @@ class OpenChannelListTableViewCell: UITableViewCell {
     self.channelName.text = self.channel.name
 
     if self.channel.participantCount <= 1 {
-      self.participantCountLabel.text = String(format: Bundle.sbLocalizedStringForKey(key: "ParticipantSingular"), aChannel.participantCount)
+      self.participantCountLabel.text = String(format: Bundle.truedatLocalizedStringForKey(key: "ParticipantSingular"), aChannel.participantCount)
     } else {
-      self.participantCountLabel.text = String(format: Bundle.sbLocalizedStringForKey(key: "ParticipantPlural"), aChannel.participantCount)
+      self.participantCountLabel.text = String(format: Bundle.truedatLocalizedStringForKey(key: "ParticipantPlural"), aChannel.participantCount)
     }
   }
 }

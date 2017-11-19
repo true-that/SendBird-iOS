@@ -57,9 +57,9 @@ class GroupChannelListTableViewCell: UITableViewCell {
     if self.channel.isTyping() == true {
       var typingLabelText = ""
       if self.channel.getTypingMembers()?.count == 1 {
-        typingLabelText = String(format: Bundle.sbLocalizedStringForKey(key: "TypingMessageSingular"), (self.channel.getTypingMembers()?[0].nickname)!)
+        typingLabelText = String(format: Bundle.truedatLocalizedStringForKey(key: "TypingMessageSingular"), (self.channel.getTypingMembers()?[0].nickname)!)
       } else {
-        typingLabelText = Bundle.sbLocalizedStringForKey(key: "TypingMessagePlural")
+        typingLabelText = Bundle.truedatLocalizedStringForKey(key: "TypingMessagePlural")
       }
 
       self.typingLabel.text = typingLabelText
@@ -186,13 +186,13 @@ class GroupChannelListTableViewCell: UITableViewCell {
     } else if self.channel.lastMessage is SBDFileMessage {
       let lastMessage = (self.channel.lastMessage as! SBDFileMessage)
       if lastMessage.type.hasPrefix("image") {
-        self.lastMessageLabel.text = Bundle.sbLocalizedStringForKey(key: "MessageSummaryImage")
+        self.lastMessageLabel.text = Bundle.truedatLocalizedStringForKey(key: "MessageSummaryImage")
       } else if lastMessage.type.hasPrefix("video") {
-        self.lastMessageLabel.text = Bundle.sbLocalizedStringForKey(key: "MessageSummaryVideo")
+        self.lastMessageLabel.text = Bundle.truedatLocalizedStringForKey(key: "MessageSummaryVideo")
       } else if lastMessage.type.hasPrefix("audio") {
-        self.lastMessageLabel.text = Bundle.sbLocalizedStringForKey(key: "MessageSummaryAudio")
+        self.lastMessageLabel.text = Bundle.truedatLocalizedStringForKey(key: "MessageSummaryAudio")
       } else {
-        self.lastMessageLabel.text = Bundle.sbLocalizedStringForKey(key: "MessageSummaryFile")
+        self.lastMessageLabel.text = Bundle.truedatLocalizedStringForKey(key: "MessageSummaryFile")
       }
       lastMessageTimestamp = Int64(lastMessage.createdAt)
     } else if self.channel.lastMessage is SBDAdminMessage {

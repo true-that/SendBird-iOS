@@ -9,17 +9,17 @@
 import Foundation
 
 extension Bundle {
-  static func sbBundle() -> Bundle {
+  static func truedatBundle() -> Bundle {
     return Bundle(for: ViewController.self)
   }
 
-  static func sbResourceBundle() -> Bundle {
-    let bundleResourcePath = Bundle.sbBundle().resourcePath
-    let assetPath = bundleResourcePath?.appending("/SendBird-iOS.bundle")
+  static func truedatResourceBundle() -> Bundle {
+    let bundleResourcePath = Bundle.truedatBundle().resourcePath
+    let assetPath = bundleResourcePath?.appending("/Truedat.bundle")
     return Bundle(path: assetPath!)!
   }
 
-  static func sbLocalizedStringForKey(key: String) -> String {
-    return NSLocalizedString(key, tableName: "Localizable", bundle: Bundle.sbResourceBundle(), comment: "")
+  static func truedatLocalizedStringForKey(key: String) -> String {
+    return NSLocalizedString(key, tableName: "Localizable", bundle: Bundle.truedatResourceBundle(), comment: "")
   }
 }

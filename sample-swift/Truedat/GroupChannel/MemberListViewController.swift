@@ -37,8 +37,8 @@ class MemberListViewController: UIViewController, UITableViewDelegate, UITableVi
 
     self.channel.refresh { error in
       if error != nil {
-        let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-        let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+        let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+        let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
         vc.addAction(closeAction)
         DispatchQueue.main.async {
           self.present(vc, animated: true, completion: nil)
@@ -49,7 +49,7 @@ class MemberListViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     DispatchQueue.main.async {
-      self.navItem.title = String(format: Bundle.sbLocalizedStringForKey(key: "MemberListTitle"), Int(self.channel.memberCount))
+      self.navItem.title = String(format: Bundle.truedatLocalizedStringForKey(key: "MemberListTitle"), Int(self.channel.memberCount))
       self.tableView.reloadData()
     }
   }
@@ -66,7 +66,7 @@ class MemberListViewController: UIViewController, UITableViewDelegate, UITableVi
     self.channel.refresh { error in
       if error == nil {
         DispatchQueue.main.async {
-          self.navItem.title = String(format: Bundle.sbLocalizedStringForKey(key: "MemberListTitle"), Int(self.channel.memberCount))
+          self.navItem.title = String(format: Bundle.truedatLocalizedStringForKey(key: "MemberListTitle"), Int(self.channel.memberCount))
           self.tableView.reloadData()
         }
       }
@@ -88,14 +88,14 @@ class MemberListViewController: UIViewController, UITableViewDelegate, UITableVi
 
   func channel(_ sender: SBDGroupChannel, userDidJoin user: SBDUser) {
     DispatchQueue.main.async {
-      self.navItem.title = String(format: Bundle.sbLocalizedStringForKey(key: "MemberListTitle"), Int(self.channel.memberCount))
+      self.navItem.title = String(format: Bundle.truedatLocalizedStringForKey(key: "MemberListTitle"), Int(self.channel.memberCount))
       self.tableView.reloadData()
     }
   }
 
   func channel(_ sender: SBDGroupChannel, userDidLeave user: SBDUser) {
     DispatchQueue.main.async {
-      self.navItem.title = String(format: Bundle.sbLocalizedStringForKey(key: "MemberListTitle"), Int(self.channel.memberCount))
+      self.navItem.title = String(format: Bundle.truedatLocalizedStringForKey(key: "MemberListTitle"), Int(self.channel.memberCount))
       self.tableView.reloadData()
     }
   }
@@ -126,7 +126,7 @@ class MemberListViewController: UIViewController, UITableViewDelegate, UITableVi
 
   func channelWasChanged(_ sender: SBDBaseChannel) {
     DispatchQueue.main.async {
-      self.navItem.title = String(format: Bundle.sbLocalizedStringForKey(key: "MemberListTitle"), Int(self.channel.memberCount))
+      self.navItem.title = String(format: Bundle.truedatLocalizedStringForKey(key: "MemberListTitle"), Int(self.channel.memberCount))
       self.tableView.reloadData()
     }
   }

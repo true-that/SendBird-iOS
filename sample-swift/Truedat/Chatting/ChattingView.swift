@@ -1041,9 +1041,39 @@ class ChattingView: ReusableViewFromXib, UITableViewDelegate, UITableViewDataSou
     cell.delegate = self.delegate
   }
 
+  fileprivate func buildIncoming(reactionCell: inout UITableViewCell?, _ tableView: UITableView, _ indexPath: IndexPath, _ userMessage: SBDUserMessage) {
+    buildIncoming(userMessageCell: &reactionCell, tableView, indexPath, userMessage)
+    let cell = reactionCell as! IncomingUserMessageTableViewCell
+    cell.messageLabel.linkAttributes = [
+      NSFontAttributeName: Constants.reactionFont(),
+    ]
+    let gradientLayer = CAGradientLayer()
+    gradientLayer.colors = [
+      // red
+      UIColor(red: 255.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 1),
+      // yellow
+      UIColor(red: 255.0 / 255.0, green: 255.0 / 255.0, blue: 0.0 / 255.0, alpha: 1),
+      // green
+      UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 0.0 / 255.0, alpha: 1),
+      // teal
+      UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1),
+      // blue
+      UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 255.0 / 255.0, alpha: 1),
+      // magenta
+      UIColor(red: 255.0 / 255.0, green: 0.0 / 255.0, blue: 255.0 / 255.0, alpha: 1),
+    ]
+    gradientLayer.locations = [0.17, 0.33, 0.5, 0.67, 0.83, 1.0]
+    gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+    gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+    cell.messageLabel.layer.backgroundColor = UIColor.clear.cgColor
+    cell.messageLabel.layer.insertSublayer(gradientLayer, at: 0)
+  }
+
   fileprivate func handleIncoming(userMessage: SBDUserMessage, _ cell: inout UITableViewCell?, _ tableView: UITableView, _ indexPath: IndexPath) {
     if userMessage.customType == "url_preview" {
       buildIncoming(urlPreviewCell: &cell, tableView, indexPath, userMessage)
+    } else if userMessage.customType == "truedat_reaction" {
+      buildIncoming(reactionCell: &cell, tableView, indexPath, userMessage)
     } else {
       buildIncoming(userMessageCell: &cell, tableView, indexPath, userMessage)
     }

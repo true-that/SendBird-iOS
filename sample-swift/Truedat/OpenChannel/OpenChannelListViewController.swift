@@ -59,8 +59,8 @@ class OpenChannelListViewController: UIViewController, UITableViewDelegate, UITa
           self.refreshControl?.endRefreshing()
         }
 
-        let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-        let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+        let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+        let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
         vc.addAction(closeAction)
         DispatchQueue.main.async {
           self.present(vc, animated: true, completion: nil)
@@ -87,8 +87,8 @@ class OpenChannelListViewController: UIViewController, UITableViewDelegate, UITa
 
     self.openChannelListQuery?.loadNextPage(completionHandler: { channels, error in
       if error != nil {
-        let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-        let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+        let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+        let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
         vc.addAction(closeAction)
         DispatchQueue.main.async {
           self.present(vc, animated: true, completion: nil)
@@ -145,8 +145,8 @@ class OpenChannelListViewController: UIViewController, UITableViewDelegate, UITa
     tableView.deselectRow(at: indexPath, animated: false)
     self.channels[indexPath.row].enter { error in
       if error != nil {
-        let vc = UIAlertController(title: Bundle.sbLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
-        let closeAction = UIAlertAction(title: Bundle.sbLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
+        let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+        let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: nil)
         vc.addAction(closeAction)
         DispatchQueue.main.async {
           self.present(vc, animated: true, completion: nil)
