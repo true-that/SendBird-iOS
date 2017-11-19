@@ -62,7 +62,7 @@
 		5AD94BC71DAF780200A6CD66 /* BlockedUserListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD94BC61DAF780200A6CD66 /* BlockedUserListViewController.swift */; };
 		5AD94BCA1DB0B6F200A6CD66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AD94BC81DB0B6F200A6CD66 /* Main.storyboard */; };
 		5AD94BE41DB4A8D800A6CD66 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD94BE31DB4A8D800A6CD66 /* Constants.swift */; };
-		5AD94C281DB5F6B500A6CD66 /* SendBird-iOS.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5AD94C271DB5F6B500A6CD66 /* SendBird-iOS.bundle */; };
+		5AD94C281DB5F6B500A6CD66 /* Truedat.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5AD94C271DB5F6B500A6CD66 /* Truedat.bundle */; };
 		5AD94C2C1DB5F74A00A6CD66 /* Bundle+SendBird.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD94C2B1DB5F74A00A6CD66 /* Bundle+SendBird.swift */; };
 		5AD94C2D1DB5F97600A6CD66 /* ChattingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AD94C2F1DB5F97600A6CD66 /* ChattingView.xib */; };
 		5ADEF81A1DAA616A000AABF9 /* CreateGroupChannelUserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ADEF8151DAA616A000AABF9 /* CreateGroupChannelUserListTableViewCell.xib */; };
@@ -73,6 +73,7 @@
 		5ADEF8261DAA617D000AABF9 /* GroupChannelChattingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ADEF8211DAA617D000AABF9 /* GroupChannelChattingViewController.xib */; };
 		5ADEF82A1DAA663C000AABF9 /* CreateGroupChannelUserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEF8291DAA663C000AABF9 /* CreateGroupChannelUserListTableViewCell.swift */; };
 		5ADEF82C1DAA67C5000AABF9 /* GroupChannelListEditableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEF82B1DAA67C5000AABF9 /* GroupChannelListEditableTableViewCell.swift */; };
+		6F91FECB1FC183D3006CFCA5 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91FECA1FC183D3006CFCA5 /* Emotion.swift */; };
 		CE806EF61E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE806EF41E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.swift */; };
 		CE806EF71E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE806EF51E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.xib */; };
 		CE806EFA1E79049800A8CB57 /* OutgoingVideoFileMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE806EF81E79049800A8CB57 /* OutgoingVideoFileMessageTableViewCell.swift */; };
@@ -80,7 +81,7 @@
 		E209E9271F7A1D7600E7713F /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E209E9261F7A1D7600E7713F /* CustomNavigationBar.swift */; };
 		E2217E401EF893A000AEE668 /* CommonCrypto.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2217E381EF893A000AEE668 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E2217E4D1EF89A1700AEE668 /* CommonCrypto.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2217E381EF893A000AEE668 /* CommonCrypto.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		E221A2E31F29192500767328 /* String+SendBird.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221A2E21F29192500767328 /* String+SendBird.swift */; };
+		E221A2E31F29192500767328 /* String+Truedat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E221A2E21F29192500767328 /* String+Truedat.swift */; };
 		E2332F831EF9D46F00E0738B /* HTMLKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E2332F761EF9D46000E0738B /* HTMLKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E2332F871EFB186700E0738B /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2332F851EFB186700E0738B /* UserProfileViewController.swift */; };
 		E2332F881EFB186700E0738B /* UserProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2332F861EFB186700E0738B /* UserProfileViewController.xib */; };
@@ -236,7 +237,7 @@
 		5AD94BC61DAF780200A6CD66 /* BlockedUserListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockedUserListViewController.swift; sourceTree = "<group>"; };
 		5AD94BC91DB0B6F200A6CD66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5AD94BE31DB4A8D800A6CD66 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		5AD94C271DB5F6B500A6CD66 /* SendBird-iOS.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = "SendBird-iOS.bundle"; sourceTree = "<group>"; };
+		5AD94C271DB5F6B500A6CD66 /* Truedat.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Truedat.bundle; sourceTree = "<group>"; };
 		5AD94C291DB5F6DF00A6CD66 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AD94C2A1DB5F6E000A6CD66 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5AD94C2B1DB5F74A00A6CD66 /* Bundle+SendBird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+SendBird.swift"; sourceTree = "<group>"; };
@@ -250,6 +251,7 @@
 		5ADEF8211DAA617D000AABF9 /* GroupChannelChattingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupChannelChattingViewController.xib; sourceTree = "<group>"; };
 		5ADEF8291DAA663C000AABF9 /* CreateGroupChannelUserListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupChannelUserListTableViewCell.swift; sourceTree = "<group>"; };
 		5ADEF82B1DAA67C5000AABF9 /* GroupChannelListEditableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupChannelListEditableTableViewCell.swift; sourceTree = "<group>"; };
+		6F91FECA1FC183D3006CFCA5 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		8F3A2CB679067572774BDE5D /* Pods_SendBird_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendBird_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96683C54D2DA7CFBF0C23471 /* Pods-SendBird-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendBird-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SendBird-iOS/Pods-SendBird-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A3C1566C6AD40303D82DDC3F /* Pods_Truedat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Truedat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -267,7 +269,7 @@
 		E2217E4A1EF897A800AEE668 /* iphoneos.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphoneos.modulemap; sourceTree = "<group>"; };
 		E2217E4B1EF897BA00AEE668 /* iphonesimulator.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = iphonesimulator.modulemap; sourceTree = "<group>"; };
 		E2217E4C1EF897C900AEE668 /* macosx.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = macosx.modulemap; sourceTree = "<group>"; };
-		E221A2E21F29192500767328 /* String+SendBird.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+SendBird.swift"; sourceTree = "<group>"; };
+		E221A2E21F29192500767328 /* String+Truedat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Truedat.swift"; sourceTree = "<group>"; };
 		E2332F6B1EF9D45F00E0738B /* HTMLKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = HTMLKit.xcodeproj; path = HTMLKit/HTMLKit.xcodeproj; sourceTree = "<group>"; };
 		E2332F851EFB186700E0738B /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		E2332F861EFB186700E0738B /* UserProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserProfileViewController.xib; sourceTree = "<group>"; };
@@ -315,7 +317,7 @@
 				5ABA0B7F1DA6010A000C82DC /* Truedat */,
 				E2217E491EF8974F00AEE668 /* CommonCrypto.xcconfig */,
 				E2332F6B1EF9D45F00E0738B /* HTMLKit.xcodeproj */,
-				5AD94C271DB5F6B500A6CD66 /* SendBird-iOS.bundle */,
+				5AD94C271DB5F6B500A6CD66 /* Truedat.bundle */,
 			);
 			sourceTree = "<group>";
 		};
@@ -400,8 +402,9 @@
 				5AD94BE31DB4A8D800A6CD66 /* Constants.swift */,
 				E290199F1EE8979C00DA8AB8 /* FLAnimatedImageView+ImageCache.swift */,
 				5ABA0BC91DA64707000C82DC /* Utils.swift */,
-				E221A2E21F29192500767328 /* String+SendBird.swift */,
+				E221A2E21F29192500767328 /* String+Truedat.swift */,
 				E209E9261F7A1D7600E7713F /* CustomNavigationBar.swift */,
+				6F91FECA1FC183D3006CFCA5 /* Emotion.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -752,7 +755,7 @@
 				E24383811EF094860066559A /* OutgoingGeneralUrlPreviewMessageTableViewCell.xib in Resources */,
 				5AC2B6F41DB6287100BA4BC7 /* CreateOpenChannelViewController.xib in Resources */,
 				5AC2B6FE1DB62C0D00BA4BC7 /* ParticipantListViewController.xib in Resources */,
-				5AD94C281DB5F6B500A6CD66 /* SendBird-iOS.bundle in Resources */,
+				5AD94C281DB5F6B500A6CD66 /* Truedat.bundle in Resources */,
 				5ABA0BC61DA62094000C82DC /* OutgoingUserMessageTableViewCell.xib in Resources */,
 				5ABA0BC01DA62094000C82DC /* IncomingFileMessageTableViewCell.xib in Resources */,
 				5ADEF8261DAA617D000AABF9 /* GroupChannelChattingViewController.xib in Resources */,
@@ -860,6 +863,7 @@
 				E25E5A9B1E7A046D003E1E9B /* ChatImage.swift in Sources */,
 				E290199D1EE77A6F00DA8AB8 /* IncomingGeneralUrlPreviewMessageTableViewCell.swift in Sources */,
 				5ADEF82A1DAA663C000AABF9 /* CreateGroupChannelUserListTableViewCell.swift in Sources */,
+				6F91FECB1FC183D3006CFCA5 /* Emotion.swift in Sources */,
 				5ABA0BB21DA60559000C82DC /* MessageDelegate.swift in Sources */,
 				5ABA0B831DA6010A000C82DC /* ViewController.swift in Sources */,
 				5ABA0BB01DA6050B000C82DC /* IncomingFileMessageTableViewCell.swift in Sources */,
@@ -886,7 +890,7 @@
 				5ABA0BD21DA74F5C000C82DC /* OutgoingImageFileMessageTableViewCell.swift in Sources */,
 				CE806EF61E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.swift in Sources */,
 				5ABA0BCE1DA7277A000C82DC /* NeutralMessageTableViewCell.swift in Sources */,
-				E221A2E31F29192500767328 /* String+SendBird.swift in Sources */,
+				E221A2E31F29192500767328 /* String+Truedat.swift in Sources */,
 				E24383801EF094860066559A /* OutgoingGeneralUrlPreviewMessageTableViewCell.swift in Sources */,
 				5AD94B951DAB1E1D00A6CD66 /* GroupChannelListTableViewCell.swift in Sources */,
 				5AD94BE41DB4A8D800A6CD66 /* Constants.swift in Sources */,
@@ -1073,6 +1077,8 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DISPLAY_NAME = "Debug Truedat";
+				"DISPLAY_NAME[arch=*]" = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1092,7 +1098,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "SendBird-iOS";
+				PRODUCT_NAME = Truedat;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1127,6 +1133,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DISPLAY_NAME = Truedat;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1139,7 +1146,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "SendBird-iOS";
+				PRODUCT_NAME = Truedat;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";

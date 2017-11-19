@@ -218,15 +218,17 @@ class UserProfileViewController: UIViewController, UIImagePickerControllerDelega
   // The original image has been cropped. Additionally provides a rotation angle used to produce image.
   func imageCropViewController(_ controller: RSKImageCropViewController, didCropImage croppedImage: UIImage, usingCropRect cropRect: CGRect, rotationAngle: CGFloat) {
     self.profileImageView.image = croppedImage
-    var imageData = UIImageJPEGRepresentation(croppedImage, 0.9)
+    var imageData = UIImageJPEGRepresentation(croppedImage, 0.7)
     var resizedImage = croppedImage
-    while imageData!.count > 5 * 1024 * 1024 { // 5MB
-      let newSize = CGSize(width: resizedImage.size.width / 2, height: resizedImage.size.height / 2)
-      UIGraphicsBeginImageContextWithOptions(newSize, false, 0.5)
+    let maxSize = 2 * 1024 * 1024 // 2MB
+    if imageData!.count > maxSize {
+      let reductionRatio = CGFloat(imageData!.count) / CGFloat(maxSize)
+      let newSize = CGSize(width: resizedImage.size.width / reductionRatio, height: resizedImage.size.height / reductionRatio)
+      UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0 / reductionRatio)
       resizedImage.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: newSize.width, height: newSize.height)))
       resizedImage = UIGraphicsGetImageFromCurrentImageContext()!
       UIGraphicsEndImageContext()
-      imageData = UIImageJPEGRepresentation(resizedImage, 0.9)
+      imageData = UIImageJPEGRepresentation(resizedImage, 0.7)
     }
     self.profileImageData = imageData
     controller.dismiss(animated: false, completion: nil)

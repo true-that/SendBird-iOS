@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Truedat</string>
+	<string>$(DISPLAY_NAME)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -28,11 +28,13 @@
 		<true/>
 	</dict>
 	<key>NSAppleMusicUsageDescription</key>
-	<string></string>
+	<string>To share photos &amp; videos</string>
 	<key>NSCameraUsageDescription</key>
-	<string></string>
+	<string>To send photos to your friends</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>To share photos</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>To record videos</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -43,6 +43,7 @@ class ChattingView: ReusableViewFromXib, UITableViewDelegate, UITableViewDataSou
   @IBOutlet weak var typingIndicatorLabel: UILabel!
   @IBOutlet weak var typingIndicatorContainerView: UIView!
   @IBOutlet weak var typingIndicatorImageHeight: NSLayoutConstraint!
+  @IBOutlet weak var takePhotoButton: UIImageView!
 
   var incomingUserMessageSizingTableViewCell: IncomingUserMessageTableViewCell?
   var outgoingUserMessageSizingTableViewCell: OutgoingUserMessageTableViewCell?
@@ -111,6 +112,10 @@ class ChattingView: ReusableViewFromXib, UITableViewDelegate, UITableViewDataSou
 
     self.chattingTableView.delegate = self
     self.chattingTableView.dataSource = self
+
+    // Init take photo button
+    takePhotoButton.image = UIImage(named: "take_photo")
+    takePhotoButton.isUserInteractionEnabled = true
 
     self.initSizingCell()
   }

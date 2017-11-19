@@ -82,6 +82,8 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
     SBDMain.add(self as SBDConnectionDelegate, identifier: self.delegateIdentifier)
 
     self.chattingView.fileAttachButton.addTarget(self, action: #selector(sendFileMessage), for: UIControlEvents.touchUpInside)
+    self.chattingView.takePhotoButton.addGestureRecognizer(
+      UITapGestureRecognizer(target: self, action: #selector(self.takePhoto)))
     self.chattingView.sendButton.addTarget(self, action: #selector(sendMessage), for: UIControlEvents.touchUpInside)
 
     self.hasNext = true
@@ -603,6 +605,16 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
     let mediaUI = UIImagePickerController()
     mediaUI.sourceType = UIImagePickerControllerSourceType.photoLibrary
     let mediaTypes = [String(kUTTypeImage), String(kUTTypeMovie)]
+    mediaUI.mediaTypes = mediaTypes
+    mediaUI.delegate = self
+    self.refreshInViewDidAppear = false
+    self.present(mediaUI, animated: true, completion: nil)
+  }
+
+  @objc private func takePhoto() {
+    let mediaUI = UIImagePickerController()
+    mediaUI.sourceType = UIImagePickerControllerSourceType.camera
+    let mediaTypes = [String(kUTTypeImage)]
     mediaUI.mediaTypes = mediaTypes
     mediaUI.delegate = self
     self.refreshInViewDidAppear = false
@@ -1296,13 +1308,33 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
 
     picker.dismiss(animated: true) {
       if CFStringCompare(mediaType as CFString, kUTTypeImage, []) == CFComparisonResult.compareEqualTo {
-        let imagePath: URL = info[UIImagePickerControllerReferenceURL] as! URL
+        let imagePath = info[UIImagePickerControllerReferenceURL] as? URL
 
-        let imageName: NSString = (imagePath.lastPathComponent as NSString?)!
-        let imageData = UIImageJPEGRepresentation(info[UIImagePickerControllerOriginalImage] as! UIImage, 0.8)!
+        var imageName = "image-\(arc4random_uniform(100000))" as NSString
+        if imagePath?.lastPathComponent != nil {
+          imageName = imagePath!.lastPathComponent as NSString
+        }
+        var imageData = UIImageJPEGRepresentation(info[UIImagePickerControllerOriginalImage] as! UIImage, 0.7)!
+
+//        var resizedImage = UIImage(data: imageData)!
+//
+//        let maxSize = 2 * 1024 * 1024 // 2MB
+//        if imageData.count > maxSize {
+//          let reductionRatio = CGFloat(imageData.count) / CGFloat(maxSize)
+//          let newSize = CGSize(width: resizedImage.size.width / reductionRatio, height: resizedImage.size.height / reductionRatio)
+//          UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0 / reductionRatio)
+//          resizedImage.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: newSize.width, height: newSize.height)))
+//          resizedImage = UIGraphicsGetImageFromCurrentImageContext()!
+//          UIGraphicsEndImageContext()
+//          imageData = UIImageJPEGRepresentation(resizedImage, 0.8)!
+//        }
+
         let ext = imageName.pathExtension
         let UTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, ext as CFString, nil)?.takeRetainedValue()
-        let mimeType = UTTypeCopyPreferredTagWithClass(UTI!, kUTTagClassMIMEType)?.takeRetainedValue()
+        var mimeType = UTTypeCopyPreferredTagWithClass(UTI!, kUTTagClassMIMEType)?.takeRetainedValue()
+        if mimeType == nil {
+          mimeType = "image/jpg" as CFString
+        }
 
         if (mimeType! as String) == "image/gif" {
           self.handleGif(imageData, imageName, mimeType)
