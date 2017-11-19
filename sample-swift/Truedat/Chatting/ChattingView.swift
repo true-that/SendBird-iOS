@@ -20,6 +20,7 @@ protocol ChattingViewDelegate: class {
 }
 
 class ChattingView: ReusableViewFromXib, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
+  static var reactionMessageType = "truedat_reaction"
   @IBOutlet weak var messageTextView: UITextView!
   @IBOutlet weak var chattingTableView: UITableView!
   @IBOutlet weak var inputContainerViewHeight: NSLayoutConstraint!
@@ -750,9 +751,25 @@ class ChattingView: ReusableViewFromXib, UITableViewDelegate, UITableViewDataSou
     }
   }
 
+  fileprivate func buildOutgoing(reactionCell: inout UITableViewCell?, _ tableView: UITableView, _ indexPath: IndexPath, _ userMessage: SBDUserMessage) {
+    buildOutgoing(userMessageCell: &reactionCell, tableView, indexPath, userMessage)
+    let cell = reactionCell as! OutgoingUserMessageTableViewCell
+    cell.messageLabel.linkAttributes = [
+      NSFontAttributeName: Constants.reactionFont(),
+    ]
+    cell.messageLabel.linkAttributes = [
+      NSFontAttributeName: Constants.reactionFont(),
+    ]
+    let gradientBackground = instagramGradientLayer()
+    gradientBackground.frame = CGRect(x: 0.0, y: 0.0, width: cell.messageContainerView.frame.width, height: cell.messageContainerView.frame.height)
+    cell.messageContainerView.layer.insertSublayer(gradientBackground, at: 0)
+  }
+
   fileprivate func handleOutgoing(userMessage: SBDUserMessage, _ cell: inout UITableViewCell?, _ tableView: UITableView, _ indexPath: IndexPath) {
     if userMessage.customType == "url_preview" {
       buildOutgoing(urlPreviewCell: &cell, tableView, indexPath, userMessage)
+    } else if userMessage.customType == ChattingView.reactionMessageType {
+      buildOutgoing(reactionCell: &cell, tableView, indexPath, userMessage)
     } else {
       buildOutgoing(userMessageCell: &cell, tableView, indexPath, userMessage)
     }
@@ -1046,38 +1063,64 @@ class ChattingView: ReusableViewFromXib, UITableViewDelegate, UITableViewDataSou
     cell.delegate = self.delegate
   }
 
+  fileprivate func rainbowGradientLayer() -> CAGradientLayer {
+    let gradientLayer = CAGradientLayer()
+    // Rainbow
+    gradientLayer.colors = [
+      // red
+      UIColor(red: 255.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 1).cgColor,
+      // yellow
+      UIColor(red: 255.0 / 255.0, green: 255.0 / 255.0, blue: 0.0 / 255.0, alpha: 1).cgColor,
+      // green
+      UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 0.0 / 255.0, alpha: 1).cgColor,
+      // teal
+      UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1).cgColor,
+      // blue
+      UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 255.0 / 255.0, alpha: 1).cgColor,
+      // magenta
+      UIColor(red: 255.0 / 255.0, green: 0.0 / 255.0, blue: 255.0 / 255.0, alpha: 1).cgColor,
+    ]
+    gradientLayer.locations = [0.17, 0.33, 0.5, 0.67, 0.83, 1.0]
+    gradientLayer.startPoint = CGPoint(x: 0, y: 0)
+    gradientLayer.endPoint = CGPoint(x: 1, y: 1)
+    return gradientLayer
+  }
+
+  fileprivate func instagramGradientLayer() -> CAGradientLayer {
+    let gradientLayer = CAGradientLayer()
+    gradientLayer.colors = [
+      // blue
+      UIColor(red: 81.0 / 255.0, green: 91.0 / 255.0, blue: 212.0 / 255.0, alpha: 1).cgColor,
+      // purple
+      UIColor(red: 129.0 / 255.0, green: 52.0 / 255.0, blue: 175.0 / 255.0, alpha: 1).cgColor,
+      // pink
+      UIColor(red: 221.0 / 255.0, green: 42.0 / 255.0, blue: 123.0 / 255.0, alpha: 1).cgColor,
+      // orange
+      UIColor(red: 245.0 / 255.0, green: 133.0 / 255.0, blue: 41.0 / 255.0, alpha: 1).cgColor,
+      // yellow
+      UIColor(red: 254.0 / 255.0, green: 218.0 / 255.0, blue: 119.0 / 255.0, alpha: 1).cgColor,
+    ]
+    gradientLayer.locations = [0.1, 0.22, 0.37, 0.52, 0.78, 1.0]
+    gradientLayer.startPoint = CGPoint(x: 1, y: 1)
+    gradientLayer.endPoint = CGPoint(x: 0, y: 0)
+    return gradientLayer
+  }
+
   fileprivate func buildIncoming(reactionCell: inout UITableViewCell?, _ tableView: UITableView, _ indexPath: IndexPath, _ userMessage: SBDUserMessage) {
     buildIncoming(userMessageCell: &reactionCell, tableView, indexPath, userMessage)
     let cell = reactionCell as! IncomingUserMessageTableViewCell
     cell.messageLabel.linkAttributes = [
       NSFontAttributeName: Constants.reactionFont(),
     ]
-    let gradientLayer = CAGradientLayer()
-    gradientLayer.colors = [
-      // red
-      UIColor(red: 255.0 / 255.0, green: 0.0 / 255.0, blue: 0.0 / 255.0, alpha: 1),
-      // yellow
-      UIColor(red: 255.0 / 255.0, green: 255.0 / 255.0, blue: 0.0 / 255.0, alpha: 1),
-      // green
-      UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 0.0 / 255.0, alpha: 1),
-      // teal
-      UIColor(red: 0.0 / 255.0, green: 255.0 / 255.0, blue: 255.0 / 255.0, alpha: 1),
-      // blue
-      UIColor(red: 0.0 / 255.0, green: 0.0 / 255.0, blue: 255.0 / 255.0, alpha: 1),
-      // magenta
-      UIColor(red: 255.0 / 255.0, green: 0.0 / 255.0, blue: 255.0 / 255.0, alpha: 1),
-    ]
-    gradientLayer.locations = [0.17, 0.33, 0.5, 0.67, 0.83, 1.0]
-    gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-    gradientLayer.endPoint = CGPoint(x: 1, y: 1)
-    cell.messageLabel.layer.backgroundColor = UIColor.clear.cgColor
-    cell.messageLabel.layer.insertSublayer(gradientLayer, at: 0)
+    let gradientBackground = instagramGradientLayer()
+    gradientBackground.frame = CGRect(x: 0.0, y: 0.0, width: cell.messageContainerView.frame.width, height: cell.messageContainerView.frame.height)
+    cell.messageContainerView.layer.insertSublayer(gradientBackground, at: 0)
   }
 
   fileprivate func handleIncoming(userMessage: SBDUserMessage, _ cell: inout UITableViewCell?, _ tableView: UITableView, _ indexPath: IndexPath) {
     if userMessage.customType == "url_preview" {
       buildIncoming(urlPreviewCell: &cell, tableView, indexPath, userMessage)
-    } else if userMessage.customType == "truedat_reaction" {
+    } else if userMessage.customType == ChattingView.reactionMessageType {
       buildIncoming(reactionCell: &cell, tableView, indexPath, userMessage)
     } else {
       buildIncoming(userMessageCell: &cell, tableView, indexPath, userMessage)

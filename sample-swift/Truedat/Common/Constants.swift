@@ -74,7 +74,7 @@ class Constants: NSObject {
   }
 
   static func reactionFont() -> UIFont {
-    return UIFont(name: "HelveticaNeue", size: 28.0)!
+    return UIFont(name: "HelveticaNeue", size: 40.0)!
   }
 
   static func outgoingMessageColor() -> UIColor {

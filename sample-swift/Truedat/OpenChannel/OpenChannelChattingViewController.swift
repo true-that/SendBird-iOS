@@ -82,14 +82,14 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
     SBDMain.add(self as SBDConnectionDelegate, identifier: self.delegateIdentifier)
 
     self.chattingView.fileAttachButton.addTarget(self, action: #selector(sendFileMessage), for: UIControlEvents.touchUpInside)
-    self.chattingView.sendButton.addTarget(self, action: #selector(sendMessage), for: UIControlEvents.touchUpInside)
+    self.chattingView.sendButton.addTarget(self, action: #selector(didTapSend), for: UIControlEvents.touchUpInside)
 
     self.hasNext = true
     self.refreshInViewDidAppear = true
     self.isLoading = false
 
     self.chattingView.fileAttachButton.addTarget(self, action: #selector(sendFileMessage), for: UIControlEvents.touchUpInside)
-    self.chattingView.sendButton.addTarget(self, action: #selector(sendMessage), for: UIControlEvents.touchUpInside)
+    self.chattingView.sendButton.addTarget(self, action: #selector(didTapSend), for: UIControlEvents.touchUpInside)
 
     self.dumpedMessages = Utils.loadMessagesInChannel(channelUrl: self.openChannel.channelUrl)
   }
@@ -471,7 +471,7 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
   }
 
   private func sendMessageWithReplacement(replacement: OutgoingGeneralUrlPreviewTempModel) {
-    let preSendMessage = self.openChannel.sendUserMessage(replacement.message, data: "", customType: "", targetLanguages: ["ar", "de", "fr", "nl", "ja", "ko", "pt", "es", "zh-CHS"]) { userMessage, error in
+    let preSendMessage = self.openChannel.sendUserMessage(replacement.message, data: "", customType: "", targetLanguages: ["ar", "de", "fr", "nl", "ja", "he", "ko", "pt", "es", "zh-CHS"]) { userMessage, error in
       DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + .milliseconds(150), execute: {
         let preSendMessage = self.chattingView.preSendMessages[(userMessage?.requestId)!] as! SBDUserMessage
         self.chattingView.preSendMessages.removeValue(forKey: (userMessage?.requestId)!)
@@ -505,7 +505,7 @@ class OpenChannelChattingViewController: UIViewController, SBDConnectionDelegate
     }
   }
 
-  @objc private func sendMessage() {
+  @objc private func didTapSend() {
     if self.chattingView.messageTextView.text.characters.count > 0 {
       let message = self.chattingView.messageTextView.text
       self.chattingView.messageTextView.text = ""

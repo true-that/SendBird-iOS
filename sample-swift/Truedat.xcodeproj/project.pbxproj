@@ -73,6 +73,7 @@
 		5ADEF8261DAA617D000AABF9 /* GroupChannelChattingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ADEF8211DAA617D000AABF9 /* GroupChannelChattingViewController.xib */; };
 		5ADEF82A1DAA663C000AABF9 /* CreateGroupChannelUserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEF8291DAA663C000AABF9 /* CreateGroupChannelUserListTableViewCell.swift */; };
 		5ADEF82C1DAA67C5000AABF9 /* GroupChannelListEditableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEF82B1DAA67C5000AABF9 /* GroupChannelListEditableTableViewCell.swift */; };
+		6F8ABB0D1FC1AEE400F6DE84 /* AffectivaReactionDetectionModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8ABB0C1FC1AEE400F6DE84 /* AffectivaReactionDetectionModule.swift */; };
 		6F91FECB1FC183D3006CFCA5 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91FECA1FC183D3006CFCA5 /* Emotion.swift */; };
 		CE806EF61E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE806EF41E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.swift */; };
 		CE806EF71E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE806EF51E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.xib */; };
@@ -251,6 +252,7 @@
 		5ADEF8211DAA617D000AABF9 /* GroupChannelChattingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupChannelChattingViewController.xib; sourceTree = "<group>"; };
 		5ADEF8291DAA663C000AABF9 /* CreateGroupChannelUserListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupChannelUserListTableViewCell.swift; sourceTree = "<group>"; };
 		5ADEF82B1DAA67C5000AABF9 /* GroupChannelListEditableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupChannelListEditableTableViewCell.swift; sourceTree = "<group>"; };
+		6F8ABB0C1FC1AEE400F6DE84 /* AffectivaReactionDetectionModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectivaReactionDetectionModule.swift; sourceTree = "<group>"; };
 		6F91FECA1FC183D3006CFCA5 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		8F3A2CB679067572774BDE5D /* Pods_SendBird_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendBird_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96683C54D2DA7CFBF0C23471 /* Pods-SendBird-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendBird-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SendBird-iOS/Pods-SendBird-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -405,6 +407,7 @@
 				E221A2E21F29192500767328 /* String+Truedat.swift */,
 				E209E9261F7A1D7600E7713F /* CustomNavigationBar.swift */,
 				6F91FECA1FC183D3006CFCA5 /* Emotion.swift */,
+				6F8ABB0C1FC1AEE400F6DE84 /* AffectivaReactionDetectionModule.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -898,6 +901,7 @@
 				5ABA0BD61DA76B50000C82DC /* ReusableViewFromXib.swift in Sources */,
 				5AD94BBF1DAF560100A6CD66 /* CreateOpenChannelViewController.swift in Sources */,
 				5ABA0BCA1DA64707000C82DC /* Utils.swift in Sources */,
+				6F8ABB0D1FC1AEE400F6DE84 /* AffectivaReactionDetectionModule.swift in Sources */,
 				CE806EFA1E79049800A8CB57 /* OutgoingVideoFileMessageTableViewCell.swift in Sources */,
 				5AD94C2C1DB5F74A00A6CD66 /* Bundle+SendBird.swift in Sources */,
 				E209E9271F7A1D7600E7713F /* CustomNavigationBar.swift in Sources */,
