@@ -88,12 +88,12 @@ class GroupChannelListViewController: UIViewController, UITableViewDelegate, UIT
     let negativeRightSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
     negativeRightSpacer.width = -2
 
-    let leftBackItem = UIBarButtonItem(image: UIImage(named: "btn_back"), style: UIBarButtonItemStyle.done, target: self, action: #selector(back))
+    let leftProfileItem = UIBarButtonItem(image: UIImage(named: "btn_profile"), style: UIBarButtonItemStyle.done, target: self, action: #selector(profile))
     let rightCreateGroupChannelItem = UIBarButtonItem(image: UIImage(named: "btn_plus"), style: UIBarButtonItemStyle.done, target: self, action: #selector(createGroupChannel))
     let rightEditItem = UIBarButtonItem(image: UIImage(named: "btn_edit"), style: UIBarButtonItemStyle.done, target: self, action: #selector(editGroupChannel))
     rightEditItem.imageInsets = UIEdgeInsetsMake(0, 14, 0, -14)
 
-    self.navItem.leftBarButtonItems = [negativeLeftSpacer, leftBackItem]
+    self.navItem.leftBarButtonItems = [negativeLeftSpacer, leftProfileItem]
     self.navItem.rightBarButtonItems = [negativeRightSpacer, rightCreateGroupChannelItem, rightEditItem]
   }
 
@@ -184,8 +184,11 @@ class GroupChannelListViewController: UIViewController, UITableViewDelegate, UIT
     }
   }
 
-  @objc private func back() {
-    self.dismiss(animated: false, completion: nil)
+  @objc private func profile() {
+    let vc = UserProfileViewController()
+    DispatchQueue.main.async {
+      self.present(vc, animated: false, completion: nil)
+    }
   }
 
   @objc private func createGroupChannel() {

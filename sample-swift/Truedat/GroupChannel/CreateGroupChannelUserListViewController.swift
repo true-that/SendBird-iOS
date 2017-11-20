@@ -18,6 +18,7 @@ class CreateGroupChannelUserListViewController: UIViewController, UICollectionVi
   var userSelectionMode: Int = 0
   var groupChannel: SBDGroupChannel?
 
+  @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
   @IBOutlet weak var navItem: UINavigationItem!
   @IBOutlet weak var selectedUserListCollectionView: UICollectionView!
   @IBOutlet weak var userListTableView: UITableView!
@@ -32,6 +33,10 @@ class CreateGroupChannelUserListViewController: UIViewController, UICollectionVi
     super.viewDidLoad()
 
     // Do any additional setup after loading the view.
+
+    self.activityIndicator.isHidden = true
+    self.activityIndicator.hidesWhenStopped = true
+    self.activityIndicator.stopAnimating()
 
     let negativeLeftSpacer = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.fixedSpace, target: nil, action: nil)
     negativeLeftSpacer.width = -2
@@ -85,10 +90,35 @@ class CreateGroupChannelUserListViewController: UIViewController, UICollectionVi
       return
     }
 
-    let vc = CreateGroupChannelSelectOptionViewController(nibName: "CreateGroupChannelSelectOptionViewController", bundle: Bundle.main)
-    vc.selectedUser = NSArray(array: self.selectedUsers) as! [SBDUser]
-    vc.delegate = self
-    self.present(vc, animated: false, completion: nil)
+//    let vc = CreateGroupChannelSelectOptionViewController(nibName: "CreateGroupChannelSelectOptionViewController", bundle: Bundle.main)
+//    vc.selectedUser = NSArray(array: self.selectedUsers) as! [SBDUser]
+//    vc.delegate = self
+//    self.present(vc, animated: false, completion: nil)
+    activityIndicator.isHidden = false
+    activityIndicator.startAnimating()
+    SBDGroupChannel.createChannel(with: self.selectedUsers, isDistinct: true) { channel, error in
+      if error != nil {
+        let vc = UIAlertController(title: Bundle.truedatLocalizedStringForKey(key: "ErrorTitle"), message: error?.domain, preferredStyle: UIAlertControllerStyle.alert)
+        let closeAction = UIAlertAction(title: Bundle.truedatLocalizedStringForKey(key: "CloseButton"), style: UIAlertActionStyle.cancel, handler: { action in
+
+        })
+        vc.addAction(closeAction)
+        DispatchQueue.main.async {
+          self.present(vc, animated: true, completion: nil)
+        }
+
+        self.activityIndicator.stopAnimating()
+
+        return
+      }
+
+      self.activityIndicator.isHidden = true
+      self.activityIndicator.stopAnimating()
+
+      self.dismiss(animated: false, completion: {
+        self.didFinishCreating(channel: channel!, vc: self)
+      })
+    }
   }
 
   @objc private func invite() {

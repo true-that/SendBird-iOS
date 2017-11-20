@@ -76,6 +76,8 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     if userId != nil && (userId?.characters.count)! > 0 && userNickname != nil && (userNickname?.characters.count)! > 0 {
       self.connect()
     }
+
+    addDoneButton()
   }
 
   @IBAction func clickConnectButton(_ sender: AnyObject) {
@@ -158,7 +160,9 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         })
 
         DispatchQueue.main.async {
-          let vc = MenuViewController(nibName: "GroupChannelListViewController", bundle: Bundle.main)
+//          let vc = MenuViewController(nibName: "MenuViewController", bundle: Bundle.main)
+          let vc = GroupChannelListViewController(nibName: "GroupChannelListViewController", bundle: Bundle.main)
+          vc.addDelegates()
           self.present(vc, animated: false, completion: nil)
         }
       })
@@ -180,6 +184,23 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         self.userIdLabel.alpha = 1
         self.view.layoutIfNeeded()
       })
+    }
+  }
+
+  func addDoneButton() {
+    let keyboardToolbar = UIToolbar()
+    keyboardToolbar.sizeToFit()
+    let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
+                                        target: nil, action: nil)
+    let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done,
+                                        target: self, action: #selector(self.numberFieldDidReturn))
+    keyboardToolbar.items = [flexBarButton, doneBarButton]
+    userIdTextField.inputAccessoryView = keyboardToolbar
+  }
+
+  @objc private func numberFieldDidReturn() {
+    if userIdTextField.text != nil && userIdTextField.text!.count >= ViewController.minUserIdLength {
+      nicknameTextField.becomeFirstResponder()
     }
   }
 
