@@ -10,6 +10,8 @@ import UIKit
 import SendBirdSDK
 
 class ViewController: UITableViewController, UITextFieldDelegate {
+  fileprivate static let minUserIdLength = 6
+  fileprivate static let minNicknameLength = 3
   @IBOutlet weak var connectButton: UIButton!
   @IBOutlet weak var userIdLabel: UILabel!
   @IBOutlet weak var nicknameLabel: UILabel!
@@ -31,7 +33,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     if path != nil {
       let infoDict = NSDictionary(contentsOfFile: path!)
       let sampleUIVersion = infoDict?["CFBundleShortVersionString"] as! String
-      let version = String(format: "Sample UI v%@ / SDK v%@", sampleUIVersion, SBDMain.getSDKVersion())
+      let version = String(format: "v%@ / SDK v%@", sampleUIVersion, SBDMain.getSDKVersion())
       self.versionLabel.text = version
     }
 
@@ -77,6 +79,12 @@ class ViewController: UITableViewController, UITextFieldDelegate {
   }
 
   @IBAction func clickConnectButton(_ sender: AnyObject) {
+    if userIdTextField.text == nil || nicknameTextField.text == nil {
+      return
+    }
+    if userIdTextField.text!.count < ViewController.minUserIdLength || nicknameTextField.text!.count < ViewController.minNicknameLength {
+      return
+    }
     self.connect()
   }
 
@@ -150,7 +158,7 @@ class ViewController: UITableViewController, UITextFieldDelegate {
         })
 
         DispatchQueue.main.async {
-          let vc = MenuViewController(nibName: "MenuViewController", bundle: Bundle.main)
+          let vc = MenuViewController(nibName: "GroupChannelListViewController", bundle: Bundle.main)
           self.present(vc, animated: false, completion: nil)
         }
       })
@@ -212,5 +220,22 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     } else if textField == self.nicknameTextField {
       self.nicknameLineView.backgroundColor = Constants.textFieldLineColorNormal()
     }
+  }
+
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    if textField == self.userIdTextField {
+      if textField.text != nil && textField.text!.count >= ViewController.minUserIdLength {
+        nicknameTextField.becomeFirstResponder()
+        return true
+      }
+      return false
+    } else if textField == self.nicknameTextField {
+      if textField.text != nil && textField.text!.count > ViewController.minNicknameLength {
+        connect()
+        return true
+      }
+      return false
+    }
+    return true
   }
 }
