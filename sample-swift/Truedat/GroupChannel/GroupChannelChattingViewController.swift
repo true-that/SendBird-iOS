@@ -78,10 +78,12 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
     negativeRightSpacer.width = -2
 
     let leftCloseItem = UIBarButtonItem(image: UIImage(named: "btn_close"), style: UIBarButtonItemStyle.done, target: self, action: #selector(close))
-    let rightOpenMoreMenuItem = UIBarButtonItem(image: UIImage(named: "btn_more"), style: UIBarButtonItemStyle.done, target: self, action: #selector(openMoreMenu))
-
     self.navItem.leftBarButtonItems = [negativeLeftSpacer, leftCloseItem]
-    self.navItem.rightBarButtonItems = [negativeRightSpacer, rightOpenMoreMenuItem]
+
+//    #if DEBUG
+//      let rightOpenMoreMenuItem = UIBarButtonItem(image: UIImage(named: "btn_plus"), style: UIBarButtonItemStyle.done, target: self, action: #selector(fakeMessage))
+//      self.navItem.rightBarButtonItems = [negativeRightSpacer, rightOpenMoreMenuItem]
+//    #endif
 
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide(notification:)), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
