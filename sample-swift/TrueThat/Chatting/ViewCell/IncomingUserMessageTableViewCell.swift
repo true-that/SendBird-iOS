@@ -266,7 +266,7 @@ class IncomingUserMessageTableViewCell: UITableViewCell, TTTAttributedLabelDeleg
 
     let cellHeight = self.dateSeperatorViewTopMargin.constant + self.dateSeperatorViewHeight.constant + self.dateSeperatorViewBottomMargin.constant + self.messageContainerTopPadding.constant + fullMessageSize.height + self.messageContainerBottomPadding.constant
 
-    return cellHeight
+    return cellHeight * 1.2 as CGFloat
   }
 
   // MARK: TTTAttributedLabelDelegate

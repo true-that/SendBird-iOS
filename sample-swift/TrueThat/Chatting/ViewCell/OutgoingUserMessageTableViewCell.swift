@@ -213,7 +213,7 @@ class OutgoingUserMessageTableViewCell: UITableViewCell {
 
     let cellHeight = self.dateContainerTopMargin.constant + self.dateContainerHeight.constant + self.dateContainerBottomMargin.constant + self.messageContainerTopPadding.constant + fullMessageSize.height + self.messageContainerBottomPadding.constant
 
-    return cellHeight
+    return cellHeight * 1.2 as CGFloat
   }
 
   func hideUnreadCount() {

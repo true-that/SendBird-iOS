@@ -460,150 +460,150 @@ class ChattingView: ReusableViewFromXib, UITableViewDelegate, UITableViewDataSou
     return height
   }
 
-  /*
-   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-   var height: CGFloat = 0
 
-   let msg = self.messages[indexPath.row]
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    var height: CGFloat = 0
 
-   if msg is SBDUserMessage {
-   let userMessage = msg as! SBDUserMessage
-   let sender = userMessage.sender
+    let msg = self.messages[indexPath.row]
 
-   if sender?.userId == SBDMain.getCurrentUser()?.userId {
-   // Outgoing
-   if indexPath.row > 0 {
-   self.outgoingUserMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
-   }
-   else {
-   self.outgoingUserMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
-   }
-   self.outgoingUserMessageSizingTableViewCell?.setModel(aMessage: userMessage)
-   height = (self.outgoingUserMessageSizingTableViewCell?.getHeightOfViewCell())!
-   }
-   else {
-   // Incoming
-   if indexPath.row > 0 {
-   self.incomingUserMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
-   }
-   else {
-   self.incomingUserMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
-   }
-   self.incomingUserMessageSizingTableViewCell?.setModel(aMessage: userMessage)
-   height = (self.incomingUserMessageSizingTableViewCell?.getHeightOfViewCell())!
-   }
-   }
-   else if msg is SBDFileMessage {
-   let fileMessage = msg as! SBDFileMessage
-   let sender = fileMessage.sender
+    if msg is SBDUserMessage {
+      let userMessage = msg as! SBDUserMessage
+      let sender = userMessage.sender
 
-   if sender?.userId == SBDMain.getCurrentUser()?.userId {
-   // Outgoing
-   if fileMessage.type.hasPrefix("video") {
-   if indexPath.row > 0 {
-   self.outgoingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
-   }
-   else {
-   self.outgoingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
-   }
-   self.outgoingFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
-   height = (self.outgoingFileMessageSizingTableViewCell?.getHeightOfViewCell())!
-   }
-   else if fileMessage.type.hasPrefix("audio") {
-   if indexPath.row > 0 {
-   self.outgoingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
-   }
-   else {
-   self.outgoingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
-   }
-   self.outgoingFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
-   height = (self.outgoingFileMessageSizingTableViewCell?.getHeightOfViewCell())!
-   }
-   else if fileMessage.type.hasPrefix("image") {
-   if indexPath.row > 0 {
-   self.outgoingImageFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
-   }
-   else {
-   self.outgoingImageFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
-   }
-   self.outgoingImageFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
-   height = (self.outgoingImageFileMessageSizingTableViewCell?.getHeightOfViewCell())!
-   }
-   else {
-   if indexPath.row > 0 {
-   self.outgoingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
-   }
-   else {
-   self.outgoingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
-   }
-   self.outgoingFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
-   height = (self.outgoingFileMessageSizingTableViewCell?.getHeightOfViewCell())!
-   }
-   }
-   else {
-   // Incoming
-   if fileMessage.type.hasPrefix("video") {
-   if indexPath.row > 0 {
-   self.incomingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
-   }
-   else {
-   self.incomingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
-   }
-   self.incomingFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
-   height = (self.incomingFileMessageSizingTableViewCell?.getHeightOfViewCell())!
-   }
-   else if fileMessage.type.hasPrefix("audio") {
-   if indexPath.row > 0 {
-   self.incomingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
-   }
-   else {
-   self.incomingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
-   }
-   self.incomingFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
-   height = (self.incomingFileMessageSizingTableViewCell?.getHeightOfViewCell())!
-   }
-   else if fileMessage.type.hasPrefix("image") {
-   if indexPath.row > 0 {
-   self.incomingImageFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
-   }
-   else {
-   self.incomingImageFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
-   }
-   self.incomingImageFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
-   height = (self.incomingImageFileMessageSizingTableViewCell?.getHeightOfViewCell())!
-   }
-   else {
-   if indexPath.row > 0 {
-   self.incomingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
-   }
-   else {
-   self.incomingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
-   }
-   self.incomingFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
-   height = (self.incomingFileMessageSizingTableViewCell?.getHeightOfViewCell())!
-   }
-   }
-   }
-   else if msg is SBDAdminMessage {
-   let adminMessage = msg as! SBDAdminMessage
-   if indexPath.row > 0 {
-   self.neutralMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
-   }
-   else {
-   self.neutralMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
-   }
+      if sender?.userId == SBDMain.getCurrentUser()?.userId {
+        // Outgoing
+        if indexPath.row > 0 {
+          self.outgoingUserMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
+        }
+        else {
+          self.outgoingUserMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
+        }
+        self.outgoingUserMessageSizingTableViewCell?.setModel(aMessage: userMessage)
+        height = (self.outgoingUserMessageSizingTableViewCell?.getHeightOfViewCell())!
+      }
+      else {
+        // Incoming
+        if indexPath.row > 0 {
+          self.incomingUserMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
+        }
+        else {
+          self.incomingUserMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
+        }
+        self.incomingUserMessageSizingTableViewCell?.setModel(aMessage: userMessage)
+        height = (self.incomingUserMessageSizingTableViewCell?.getHeightOfViewCell())!
+      }
+    }
+    else if msg is SBDFileMessage {
+      let fileMessage = msg as! SBDFileMessage
+      let sender = fileMessage.sender
 
-   self.neutralMessageSizingTableViewCell?.setModel(aMessage: adminMessage)
-   height = (self.neutralMessageSizingTableViewCell?.getHeightOfViewCell())!
-   }
+      if sender?.userId == SBDMain.getCurrentUser()?.userId {
+        // Outgoing
+        if fileMessage.type.hasPrefix("video") {
+          if indexPath.row > 0 {
+            self.outgoingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
+          }
+          else {
+            self.outgoingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
+          }
+          self.outgoingFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
+          height = (self.outgoingFileMessageSizingTableViewCell?.getHeightOfViewCell())!
+        }
+        else if fileMessage.type.hasPrefix("audio") {
+          if indexPath.row > 0 {
+            self.outgoingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
+          }
+          else {
+            self.outgoingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
+          }
+          self.outgoingFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
+          height = (self.outgoingFileMessageSizingTableViewCell?.getHeightOfViewCell())!
+        }
+        else if fileMessage.type.hasPrefix("image") {
+          if indexPath.row > 0 {
+            self.outgoingImageFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
+          }
+          else {
+            self.outgoingImageFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
+          }
+          self.outgoingImageFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
+          height = (self.outgoingImageFileMessageSizingTableViewCell?.getHeightOfViewCell())!
+        }
+        else {
+          if indexPath.row > 0 {
+            self.outgoingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
+          }
+          else {
+            self.outgoingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
+          }
+          self.outgoingFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
+          height = (self.outgoingFileMessageSizingTableViewCell?.getHeightOfViewCell())!
+        }
+      }
+      else {
+        // Incoming
+        if fileMessage.type.hasPrefix("video") {
+          if indexPath.row > 0 {
+            self.incomingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
+          }
+          else {
+            self.incomingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
+          }
+          self.incomingFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
+          height = (self.incomingFileMessageSizingTableViewCell?.getHeightOfViewCell())!
+        }
+        else if fileMessage.type.hasPrefix("audio") {
+          if indexPath.row > 0 {
+            self.incomingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
+          }
+          else {
+            self.incomingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
+          }
+          self.incomingFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
+          height = (self.incomingFileMessageSizingTableViewCell?.getHeightOfViewCell())!
+        }
+        else if fileMessage.type.hasPrefix("image") {
+          if indexPath.row > 0 {
+            self.incomingImageFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
+          }
+          else {
+            self.incomingImageFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
+          }
+          self.incomingImageFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
+          height = (self.incomingImageFileMessageSizingTableViewCell?.getHeightOfViewCell())!
+        }
+        else {
+          if indexPath.row > 0 {
+            self.incomingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
+          }
+          else {
+            self.incomingFileMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
+          }
+          self.incomingFileMessageSizingTableViewCell?.setModel(aMessage: fileMessage)
+          height = (self.incomingFileMessageSizingTableViewCell?.getHeightOfViewCell())!
+        }
+      }
+    }
+    else if msg is SBDAdminMessage {
+      let adminMessage = msg as! SBDAdminMessage
+      if indexPath.row > 0 {
+        self.neutralMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: self.messages[indexPath.row - 1])
+      }
+      else {
+        self.neutralMessageSizingTableViewCell?.setPreviousMessage(aPrevMessage: nil)
+      }
 
-   if self.messages.count > 0 && self.messages.count - 1 == indexPath.row {
-   self.lastMessageHeight = height
-   }
+      self.neutralMessageSizingTableViewCell?.setModel(aMessage: adminMessage)
+      height = (self.neutralMessageSizingTableViewCell?.getHeightOfViewCell())!
+    }
 
-   return height
-   }
-   */
+    if self.messages.count > 0 && self.messages.count - 1 == indexPath.row {
+      self.lastMessageHeight = height
+    }
+
+    return height
+  }
+
 
   func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
     return 0

@@ -80,10 +80,10 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
     let leftCloseItem = UIBarButtonItem(image: UIImage(named: "btn_close"), style: UIBarButtonItemStyle.done, target: self, action: #selector(close))
     self.navItem.leftBarButtonItems = [negativeLeftSpacer, leftCloseItem]
 
-//    #if DEBUG
-//      let rightOpenMoreMenuItem = UIBarButtonItem(image: UIImage(named: "btn_plus"), style: UIBarButtonItemStyle.done, target: self, action: #selector(fakeMessage))
-//      self.navItem.rightBarButtonItems = [negativeRightSpacer, rightOpenMoreMenuItem]
-//    #endif
+    //    #if DEBUG
+    //      let rightOpenMoreMenuItem = UIBarButtonItem(image: UIImage(named: "btn_plus"), style: UIBarButtonItemStyle.done, target: self, action: #selector(fakeMessage))
+    //      self.navItem.rightBarButtonItems = [negativeRightSpacer, rightOpenMoreMenuItem]
+    //    #endif
 
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(notification:)), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
     NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide(notification:)), name: NSNotification.Name.UIKeyboardDidHide, object: nil)
@@ -1356,20 +1356,15 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
         if imagePath?.lastPathComponent != nil {
           imageName = imagePath!.lastPathComponent as NSString
         }
-        var imageData = UIImageJPEGRepresentation(info[UIImagePickerControllerOriginalImage] as! UIImage, 0.7)!
+        var image = info[UIImagePickerControllerOriginalImage] as! UIImage
 
-//        var resizedImage = UIImage(data: imageData)!
-//
-//        let maxSize = 2 * 1024 * 1024 // 2MB
-//        if imageData.count > maxSize {
-//          let reductionRatio = CGFloat(imageData.count) / CGFloat(maxSize)
-//          let newSize = CGSize(width: resizedImage.size.width / reductionRatio, height: resizedImage.size.height / reductionRatio)
-//          UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0 / reductionRatio)
-//          resizedImage.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: newSize.width, height: newSize.height)))
-//          resizedImage = UIGraphicsGetImageFromCurrentImageContext()!
-//          UIGraphicsEndImageContext()
-//          imageData = UIImageJPEGRepresentation(resizedImage, 0.8)!
-//        }
+        let reductionRatio = 2.0 as CGFloat
+        let newSize = CGSize(width: image.size.width / reductionRatio, height: image.size.height / reductionRatio)
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0 / reductionRatio)
+        image.draw(in: CGRect(origin: CGPoint.zero, size: CGSize(width: newSize.width, height: newSize.height)))
+        image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        let imageData = UIImageJPEGRepresentation(image, 0.3)!
 
         let ext = imageName.pathExtension
         let UTI = UTTypeCreatePreferredIdentifierForTag(kUTTagClassFilenameExtension, ext as CFString, nil)?.takeRetainedValue()
