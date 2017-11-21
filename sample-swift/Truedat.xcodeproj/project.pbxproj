@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1F87D6BC3C1F2B6ED66FFD3A /* Pods_Truedat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3C1566C6AD40303D82DDC3F /* Pods_Truedat.framework */; };
 		5ABA0B811DA6010A000C82DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABA0B801DA6010A000C82DC /* AppDelegate.swift */; };
 		5ABA0B831DA6010A000C82DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABA0B821DA6010A000C82DC /* ViewController.swift */; };
 		5ABA0B881DA6010A000C82DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ABA0B871DA6010A000C82DC /* Assets.xcassets */; };
@@ -76,6 +75,7 @@
 		6F7C084F1FC422CB00C053BA /* react.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C084E1FC422CB00C053BA /* react.mp3 */; };
 		6F8ABB0D1FC1AEE400F6DE84 /* AffectivaReactionDetectionModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8ABB0C1FC1AEE400F6DE84 /* AffectivaReactionDetectionModule.swift */; };
 		6F91FECB1FC183D3006CFCA5 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91FECA1FC183D3006CFCA5 /* Emotion.swift */; };
+		7D9448723201877EDB689543 /* Pods_TrueThat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C0FA4CA74758C2330256E92 /* Pods_TrueThat.framework */; };
 		CE806EF61E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE806EF41E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.swift */; };
 		CE806EF71E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE806EF51E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.xib */; };
 		CE806EFA1E79049800A8CB57 /* OutgoingVideoFileMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE806EF81E79049800A8CB57 /* OutgoingVideoFileMessageTableViewCell.swift */; };
@@ -174,8 +174,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		07368954F83D5C1FAB2F186B /* Pods-TrueThat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueThat.release.xcconfig"; path = "Pods/Target Support Files/Pods-TrueThat/Pods-TrueThat.release.xcconfig"; sourceTree = "<group>"; };
 		5A74B8EF1DC0D11D00EBA0F5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/GroupChannelListViewController.xib; sourceTree = "<group>"; };
-		5ABA0B7D1DA6010A000C82DC /* Debug Truedat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Debug Truedat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ABA0B7D1DA6010A000C82DC /* Debug TrueThat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Debug TrueThat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ABA0B801DA6010A000C82DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ABA0B821DA6010A000C82DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5ABA0B871DA6010A000C82DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -253,12 +254,14 @@
 		5ADEF8211DAA617D000AABF9 /* GroupChannelChattingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupChannelChattingViewController.xib; sourceTree = "<group>"; };
 		5ADEF8291DAA663C000AABF9 /* CreateGroupChannelUserListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupChannelUserListTableViewCell.swift; sourceTree = "<group>"; };
 		5ADEF82B1DAA67C5000AABF9 /* GroupChannelListEditableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupChannelListEditableTableViewCell.swift; sourceTree = "<group>"; };
+		6C0FA4CA74758C2330256E92 /* Pods_TrueThat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrueThat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6F7C084E1FC422CB00C053BA /* react.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = react.mp3; sourceTree = "<group>"; };
 		6F8ABB0C1FC1AEE400F6DE84 /* AffectivaReactionDetectionModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectivaReactionDetectionModule.swift; sourceTree = "<group>"; };
 		6F91FECA1FC183D3006CFCA5 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		8F3A2CB679067572774BDE5D /* Pods_SendBird_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendBird_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		96683C54D2DA7CFBF0C23471 /* Pods-SendBird-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendBird-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-SendBird-iOS/Pods-SendBird-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A3C1566C6AD40303D82DDC3F /* Pods_Truedat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Truedat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A513AB2D49077B78B6877F8F /* Pods-TrueThat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrueThat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TrueThat/Pods-TrueThat.debug.xcconfig"; sourceTree = "<group>"; };
 		C879E57358A8287C34B477A5 /* Pods-SendBird-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SendBird-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SendBird-iOS/Pods-SendBird-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		CE806EF41E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncomingVideoFileMessageTableViewCell.swift; sourceTree = "<group>"; };
 		CE806EF51E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IncomingVideoFileMessageTableViewCell.xib; sourceTree = "<group>"; };
@@ -297,7 +300,7 @@
 			files = (
 				E25E5A771E735BC8003E1E9B /* Photos.framework in Frameworks */,
 				E2217E4D1EF89A1700AEE668 /* CommonCrypto.framework in Frameworks */,
-				1F87D6BC3C1F2B6ED66FFD3A /* Pods_Truedat.framework in Frameworks */,
+				7D9448723201877EDB689543 /* Pods_TrueThat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,7 +322,7 @@
 				87F030833FB4898AD40CBE66 /* Frameworks */,
 				B7DFF76D457E2AA72C07058C /* Pods */,
 				5ABA0B7E1DA6010A000C82DC /* Products */,
-				5ABA0B7F1DA6010A000C82DC /* Truedat */,
+				5ABA0B7F1DA6010A000C82DC /* TrueThat */,
 				E2217E491EF8974F00AEE668 /* CommonCrypto.xcconfig */,
 				E2332F6B1EF9D45F00E0738B /* HTMLKit.xcodeproj */,
 				5AD94C271DB5F6B500A6CD66 /* Truedat.bundle */,
@@ -329,13 +332,13 @@
 		5ABA0B7E1DA6010A000C82DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5ABA0B7D1DA6010A000C82DC /* Debug Truedat.app */,
+				5ABA0B7D1DA6010A000C82DC /* Debug TrueThat.app */,
 				E2217E381EF893A000AEE668 /* CommonCrypto.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5ABA0B7F1DA6010A000C82DC /* Truedat */ = {
+		5ABA0B7F1DA6010A000C82DC /* TrueThat */ = {
 			isa = PBXGroup;
 			children = (
 				E212EC7E1EFC8B6800FDED1D /* Truedat.entitlements */,
@@ -354,7 +357,7 @@
 				5AD94BC81DB0B6F200A6CD66 /* Main.storyboard */,
 				5ABA0B821DA6010A000C82DC /* ViewController.swift */,
 			);
-			path = Truedat;
+			path = TrueThat;
 			sourceTree = "<group>";
 		};
 		5ABA0B921DA6020A000C82DC /* Chatting */ = {
@@ -512,6 +515,7 @@
 				E25E5A761E735BC8003E1E9B /* Photos.framework */,
 				8F3A2CB679067572774BDE5D /* Pods_SendBird_iOS.framework */,
 				A3C1566C6AD40303D82DDC3F /* Pods_Truedat.framework */,
+				6C0FA4CA74758C2330256E92 /* Pods_TrueThat.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -523,6 +527,8 @@
 				96683C54D2DA7CFBF0C23471 /* Pods-SendBird-iOS.release.xcconfig */,
 				CF5A16521DE58A53A03F75A6 /* Pods-Truedat.debug.xcconfig */,
 				ECF438B57C785DF480DEBA90 /* Pods-Truedat.release.xcconfig */,
+				A513AB2D49077B78B6877F8F /* Pods-TrueThat.debug.xcconfig */,
+				07368954F83D5C1FAB2F186B /* Pods-TrueThat.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -590,9 +596,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		5ABA0B7C1DA6010A000C82DC /* Truedat */ = {
+		5ABA0B7C1DA6010A000C82DC /* TrueThat */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5ABA0B8F1DA6010A000C82DC /* Build configuration list for PBXNativeTarget "Truedat" */;
+			buildConfigurationList = 5ABA0B8F1DA6010A000C82DC /* Build configuration list for PBXNativeTarget "TrueThat" */;
 			buildPhases = (
 				A0885E337A6E419ABA67A9A3 /* [CP] Check Pods Manifest.lock */,
 				5ABA0B791DA6010A000C82DC /* Sources */,
@@ -608,9 +614,9 @@
 			dependencies = (
 				E2217E3E1EF893A000AEE668 /* PBXTargetDependency */,
 			);
-			name = Truedat;
+			name = TrueThat;
 			productName = "SendBird-iOS";
-			productReference = 5ABA0B7D1DA6010A000C82DC /* Debug Truedat.app */;
+			productReference = 5ABA0B7D1DA6010A000C82DC /* Debug TrueThat.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E2217E371EF893A000AEE668 /* CommonCrypto */ = {
@@ -678,7 +684,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				5ABA0B7C1DA6010A000C82DC /* Truedat */,
+				5ABA0B7C1DA6010A000C82DC /* TrueThat */,
 				E2217E371EF893A000AEE668 /* CommonCrypto */,
 			);
 		};
@@ -818,7 +824,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Truedat/Pods-Truedat-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrueThat/Pods-TrueThat-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8C1E0916356E7246F394074F /* [CP] Embed Pods Frameworks */ = {
@@ -827,7 +833,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Truedat/Pods-Truedat-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-TrueThat/Pods-TrueThat-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AWSCore/AWSCore.framework",
 				"${BUILT_PRODUCTS_DIR}/AWSKinesis/AWSKinesis.framework",
 				"${PODS_ROOT}/AffdexSDK-iOS/ios/Affdex.framework",
@@ -862,7 +868,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Truedat/Pods-Truedat-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TrueThat/Pods-TrueThat-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A0885E337A6E419ABA67A9A3 /* [CP] Check Pods Manifest.lock */ = {
@@ -876,7 +882,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Truedat-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-TrueThat-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1109,7 +1115,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DISPLAY_NAME = "Debug Truedat";
+				DISPLAY_NAME = "Debug TrueThat";
 				"DISPLAY_NAME[arch=*]" = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -1130,7 +1136,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = Truedat;
+				PRODUCT_NAME = TrueThat;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1166,7 +1172,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DISPLAY_NAME = Truedat;
+				DISPLAY_NAME = TrueThat;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1179,7 +1185,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = Truedat;
+				PRODUCT_NAME = TrueThat;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1189,13 +1195,14 @@
 		};
 		5ABA0B901DA6010A000C82DC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CF5A16521DE58A53A03F75A6 /* Pods-Truedat.debug.xcconfig */;
+			baseConfigurationReference = A513AB2D49077B78B6877F8F /* Pods-TrueThat.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Truedat/Truedat.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME)/Truedat.entitlements";
 				DEVELOPMENT_TEAM = 9U6QZAC8R3;
-				INFOPLIST_FILE = Truedat/Info.plist;
+				DISPLAY_NAME = "Debug $(TARGET_NAME)";
+				INFOPLIST_FILE = "$(SRCROOT)/TrueThat/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.truethat.appstore.debug;
@@ -1206,14 +1213,15 @@
 		};
 		5ABA0B911DA6010A000C82DC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECF438B57C785DF480DEBA90 /* Pods-Truedat.release.xcconfig */;
+			baseConfigurationReference = 07368954F83D5C1FAB2F186B /* Pods-TrueThat.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = Truedat/Truedat.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "$(TARGET_NAME)/Truedat.entitlements";
 				DEVELOPMENT_TEAM = 9U6QZAC8R3;
+				DISPLAY_NAME = "$(TARGET_NAME)";
 				GCC_OPTIMIZATION_LEVEL = s;
-				INFOPLIST_FILE = Truedat/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/TrueThat/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.truethat.appstore;
@@ -1283,7 +1291,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5ABA0B8F1DA6010A000C82DC /* Build configuration list for PBXNativeTarget "Truedat" */ = {
+		5ABA0B8F1DA6010A000C82DC /* Build configuration list for PBXNativeTarget "TrueThat" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5ABA0B901DA6010A000C82DC /* Debug */,
