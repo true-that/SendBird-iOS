@@ -590,6 +590,7 @@
 				8C1E0916356E7246F394074F /* [CP] Embed Pods Frameworks */,
 				88618BF479B07A50BF60BDBE /* [CP] Copy Pods Resources */,
 				E2217E441EF893A000AEE668 /* Embed Frameworks */,
+				6F7C083B1FC41E5D00C053BA /* Fabric Run Script */,
 			);
 			buildRules = (
 			);
@@ -779,6 +780,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		6F7C083B1FC41E5D00C053BA /* Fabric Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Fabric Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" ddc8f05b8b5cc1630205777b73f3254602112b8e b888a395a3e2f86922847de5707d9619f8cc1cc8a7af9e20cd1c9dfcb02ad5ba";
+		};
 		88618BF479B07A50BF60BDBE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1059,6 +1074,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPSEE_API_KEY = 8f3b34050a22433ab923fced71a10e50;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1115,6 +1131,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				APPSEE_API_KEY = 89c90b70e4d842d888795abf01e181b5;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";

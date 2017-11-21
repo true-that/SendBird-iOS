@@ -10,6 +10,9 @@ import UIKit
 import SendBirdSDK
 import AVKit
 import AVFoundation
+import Appsee
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -42,6 +45,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     SBDMain.initWithApplicationId("5A2C83D8-3C58-47CE-B31A-ED758808A79F")
     SBDMain.setLogLevel(SBDLogLevel.none)
     SBDOptions.setUseMemberAsMessageSender(true)
+
+    Fabric.with([Crashlytics.self, Appsee.self])
 
     let audioSession = AVAudioSession.sharedInstance()
     do {
