@@ -366,6 +366,32 @@ class GroupChannelListViewController: UIViewController, UITableViewDelegate, UIT
         }
       })
     }
+
+    if (UIApplication.shared.delegate as! AppDelegate).receivedPushChannelUrl != nil {
+      let channelUrl = (UIApplication.shared.delegate as! AppDelegate).receivedPushChannelUrl
+
+      var topViewController = UIApplication.shared.keyWindow?.rootViewController
+      while (topViewController?.presentedViewController) != nil {
+        topViewController = topViewController?.presentedViewController
+      }
+
+      if topViewController is GroupChannelChattingViewController {
+        if (topViewController as! GroupChannelChattingViewController).groupChannel.channelUrl == channelUrl {
+          return
+        } else {
+          topViewController?.dismiss(animated: true, completion: nil)
+        }
+      }
+
+      ((UIApplication.shared).delegate as! AppDelegate).receivedPushChannelUrl = nil
+      SBDGroupChannel.getWithUrl(channelUrl!, completionHandler: { channel, error in
+        let vc = GroupChannelChattingViewController()
+        vc.groupChannel = channel
+        DispatchQueue.main.async {
+          topViewController?.present(vc, animated: false, completion: nil)
+        }
+      })
+    }
   }
 
   func didFailReconnection() {
