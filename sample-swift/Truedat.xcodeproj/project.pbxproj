@@ -73,6 +73,7 @@
 		5ADEF8261DAA617D000AABF9 /* GroupChannelChattingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ADEF8211DAA617D000AABF9 /* GroupChannelChattingViewController.xib */; };
 		5ADEF82A1DAA663C000AABF9 /* CreateGroupChannelUserListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEF8291DAA663C000AABF9 /* CreateGroupChannelUserListTableViewCell.swift */; };
 		5ADEF82C1DAA67C5000AABF9 /* GroupChannelListEditableTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADEF82B1DAA67C5000AABF9 /* GroupChannelListEditableTableViewCell.swift */; };
+		6F7C084F1FC422CB00C053BA /* react.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6F7C084E1FC422CB00C053BA /* react.mp3 */; };
 		6F8ABB0D1FC1AEE400F6DE84 /* AffectivaReactionDetectionModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F8ABB0C1FC1AEE400F6DE84 /* AffectivaReactionDetectionModule.swift */; };
 		6F91FECB1FC183D3006CFCA5 /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F91FECA1FC183D3006CFCA5 /* Emotion.swift */; };
 		CE806EF61E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE806EF41E79048200A8CB57 /* IncomingVideoFileMessageTableViewCell.swift */; };
@@ -252,6 +253,7 @@
 		5ADEF8211DAA617D000AABF9 /* GroupChannelChattingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroupChannelChattingViewController.xib; sourceTree = "<group>"; };
 		5ADEF8291DAA663C000AABF9 /* CreateGroupChannelUserListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateGroupChannelUserListTableViewCell.swift; sourceTree = "<group>"; };
 		5ADEF82B1DAA67C5000AABF9 /* GroupChannelListEditableTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupChannelListEditableTableViewCell.swift; sourceTree = "<group>"; };
+		6F7C084E1FC422CB00C053BA /* react.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = react.mp3; sourceTree = "<group>"; };
 		6F8ABB0C1FC1AEE400F6DE84 /* AffectivaReactionDetectionModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffectivaReactionDetectionModule.swift; sourceTree = "<group>"; };
 		6F91FECA1FC183D3006CFCA5 /* Emotion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
 		8F3A2CB679067572774BDE5D /* Pods_SendBird_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SendBird_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -312,6 +314,7 @@
 		5ABA0B741DA6010A000C82DC = {
 			isa = PBXGroup;
 			children = (
+				6F7C08461FC4223A00C053BA /* Resources */,
 				E2217E391EF893A000AEE668 /* CommonCrypto */,
 				87F030833FB4898AD40CBE66 /* Frameworks */,
 				B7DFF76D457E2AA72C07058C /* Pods */,
@@ -493,6 +496,14 @@
 				5ABA0BD51DA76B50000C82DC /* ReusableViewFromXib.swift */,
 			);
 			path = ReusableViewFromXib;
+			sourceTree = "<group>";
+		};
+		6F7C08461FC4223A00C053BA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6F7C084E1FC422CB00C053BA /* react.mp3 */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		87F030833FB4898AD40CBE66 /* Frameworks */ = {
@@ -756,6 +767,7 @@
 				5ABA0B881DA6010A000C82DC /* Assets.xcassets in Resources */,
 				E2332F881EFB186700E0738B /* UserProfileViewController.xib in Resources */,
 				5AD94BAF1DAF21EF00A6CD66 /* OpenChannelChattingViewController.xib in Resources */,
+				6F7C084F1FC422CB00C053BA /* react.mp3 in Resources */,
 				E24383811EF094860066559A /* OutgoingGeneralUrlPreviewMessageTableViewCell.xib in Resources */,
 				5AC2B6F41DB6287100BA4BC7 /* CreateOpenChannelViewController.xib in Resources */,
 				5AC2B6FE1DB62C0D00BA4BC7 /* ParticipantListViewController.xib in Resources */,
