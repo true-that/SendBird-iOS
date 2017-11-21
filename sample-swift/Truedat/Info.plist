@@ -17,32 +17,32 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>3.0.76</string>
+	<string>2.0.0</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
-  <key>Fabric</key>
-  <dict>
-    <key>APIKey</key>
-    <string>ddc8f05b8b5cc1630205777b73f3254602112b8e</string>
-    <key>Kits</key>
-    <array>
-      <dict>
-        <key>KitInfo</key>
-        <dict/>
-        <key>KitName</key>
-        <string>Crashlytics</string>
-      </dict>
-      <dict>
-        <key>KitInfo</key>
-        <dict>
-          <key>apikey</key>
-          <string>$(APPSEE_API_KEY)</string>
-        </dict>
-        <key>KitName</key>
-        <string>Appsee</string>
-      </dict>
-    </array>
-  </dict>
+	<string>2000000</string>
+	<key>Fabric</key>
+	<dict>
+		<key>APIKey</key>
+		<string>ddc8f05b8b5cc1630205777b73f3254602112b8e</string>
+		<key>Kits</key>
+		<array>
+			<dict>
+				<key>KitInfo</key>
+				<dict/>
+				<key>KitName</key>
+				<string>Crashlytics</string>
+			</dict>
+			<dict>
+				<key>KitInfo</key>
+				<dict>
+					<key>apikey</key>
+					<string>$(APPSEE_API_KEY)</string>
+				</dict>
+				<key>KitName</key>
+				<string>Appsee</string>
+			</dict>
+		</array>
+	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
