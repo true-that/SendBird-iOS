@@ -10,6 +10,7 @@ import UIKit
 import SendBirdSDK
 import AVKit
 import AVFoundation
+import AudioToolbox
 import MobileCoreServices
 import Photos
 import NYTPhotoViewer
@@ -18,6 +19,7 @@ import FLAnimatedImage
 
 class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegate, SBDChannelDelegate, ChattingViewDelegate, MessageDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ReactionDetectionDelegate {
   var groupChannel: SBDGroupChannel!
+  var player : AVAudioPlayer?
 
   @IBOutlet weak var chattingView: ChattingView!
   @IBOutlet weak var navItem: UINavigationItem!
@@ -161,6 +163,10 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
     super.viewWillDisappear(animated)
     detectionModule?.stop()
     Utils.dumpMessages(messages: self.chattingView.messages, resendableMessages: self.chattingView.resendableMessages, resendableFileData: self.chattingView.resendableFileData, preSendMessages: self.chattingView.preSendMessages, channelUrl: self.groupChannel.channelUrl)
+    if player != nil {
+      player?.stop()
+      player = nil
+    }
   }
 
   @objc private func keyboardDidShow(notification: Notification) {
@@ -709,7 +715,9 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
           self.chattingView.scrollToBottom(force: false)
         }
       }
-      detectionModule?.delegate = self
+      if !(message is SBDUserMessage) || (message as! SBDUserMessage).customType != ChattingView.reactionMessageType {
+        detectionModule?.delegate = self
+      }
     }
   }
 
@@ -1471,5 +1479,17 @@ class GroupChannelChattingViewController: UIViewController, SBDConnectionDelegat
     }
     detectionModule?.delegate = nil
     send(message: reaction.emoji, customType: ChattingView.reactionMessageType)
+    // Play sound
+    let path = Bundle.main.path(forResource: "react", ofType:"mp3")!
+    let url = URL(fileURLWithPath: path)
+
+    do {
+      self.player = try AVAudioPlayer(contentsOf: url)
+      self.player?.numberOfLoops = 1
+      self.player?.prepareToPlay()
+      self.player?.play()
+    } catch let error as NSError {
+      print("Couldn't play react sound - \(error)")
+    }
   }
 }

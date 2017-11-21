@@ -175,7 +175,7 @@
 
 /* Begin PBXFileReference section */
 		5A74B8EF1DC0D11D00EBA0F5 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/GroupChannelListViewController.xib; sourceTree = "<group>"; };
-		5ABA0B7D1DA6010A000C82DC /* Truedat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Truedat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5ABA0B7D1DA6010A000C82DC /* Debug Truedat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Debug Truedat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ABA0B801DA6010A000C82DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ABA0B821DA6010A000C82DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5ABA0B871DA6010A000C82DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -329,7 +329,7 @@
 		5ABA0B7E1DA6010A000C82DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5ABA0B7D1DA6010A000C82DC /* Truedat.app */,
+				5ABA0B7D1DA6010A000C82DC /* Debug Truedat.app */,
 				E2217E381EF893A000AEE668 /* CommonCrypto.framework */,
 			);
 			name = Products;
@@ -610,7 +610,7 @@
 			);
 			name = Truedat;
 			productName = "SendBird-iOS";
-			productReference = 5ABA0B7D1DA6010A000C82DC /* Truedat.app */;
+			productReference = 5ABA0B7D1DA6010A000C82DC /* Debug Truedat.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E2217E371EF893A000AEE668 /* CommonCrypto */ = {
@@ -1198,8 +1198,8 @@
 				INFOPLIST_FILE = Truedat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.truethat.appstore;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.truethat.appstore.debug;
+				PRODUCT_NAME = "Debug $(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
