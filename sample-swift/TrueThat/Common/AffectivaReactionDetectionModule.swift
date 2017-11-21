@@ -10,7 +10,7 @@ import Affdex
 import UIKit
 
 class AffectivaReactionDetectionModule {
-  fileprivate static let detectionThreshold = 20 as CGFloat
+  fileprivate static let detectionThreshold = 200 as CGFloat
   private var detector: AFDXDetector?
   var emotionToLikelihood: [AffectivaEmotion: CGFloat] = [
     AffectivaEmotion.joy: 0,
@@ -20,16 +20,20 @@ class AffectivaReactionDetectionModule {
     AffectivaEmotion.fear: 0,
     AffectivaEmotion.disgust: 0,
     ]
+  fileprivate func resetLikelihood() {
+    emotionToLikelihood = [
+      AffectivaEmotion.joy: 0,
+      AffectivaEmotion.surprise: 0,
+      AffectivaEmotion.anger: 0,
+      AffectivaEmotion.sadness: 0,
+      AffectivaEmotion.fear: 0,
+      AffectivaEmotion.disgust: 0,
+    ]
+  }
+
   var delegate: ReactionDetectionDelegate? {
     didSet{
-      emotionToLikelihood = [
-        AffectivaEmotion.joy: 0,
-        AffectivaEmotion.surprise: 0,
-        AffectivaEmotion.anger: 0,
-        AffectivaEmotion.sadness: 0,
-        AffectivaEmotion.fear: 0,
-        AffectivaEmotion.disgust: 0,
-      ]
+      resetLikelihood()
     }
   }
 
@@ -39,10 +43,12 @@ class AffectivaReactionDetectionModule {
   }
 
   func start() {
+    resetLikelihood()
     detector?.start()
   }
 
   func stop() {
+    resetLikelihood()
     detector?.stop()
   }
 
@@ -57,9 +63,11 @@ class AffectivaReactionDetectionModule {
 
 extension AffectivaReactionDetectionModule: AFDXDetectorDelegate {
   func detectorDidStartDetectingFace(face: AFDXFace) {
+    resetLikelihood()
   }
 
   func detectorDidStopDetectingFace(face: AFDXFace) {
+    resetLikelihood()
   }
 
   func detector(_ detector: AFDXDetector, hasResults: NSMutableDictionary?, for forImage: UIImage,
@@ -88,6 +96,9 @@ extension AffectivaReactionDetectionModule: AFDXDetectorDelegate {
           if emotionLikelihoodEntry.key != mostLikely!.key {
             delegate?.didDetect(reaction: emotionLikelihoodEntry.key.toEmotion()!, mostLikely: false)
           }
+        }
+        if mostLikely != nil {
+          resetLikelihood()
         }
       }
     }
