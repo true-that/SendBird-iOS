@@ -18,7 +18,7 @@
         <!--View Controller-->
         <scene sceneID="CFf-TX-4pK">
             <objects>
-                <tableViewController id="Kza-7N-DeY" customClass="ViewController" customModule="Truedat" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Kza-7N-DeY" customClass="ViewController" customModule="Debug_Truedat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="B7V-pZ-vIe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,54 +46,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="71" id="ChS-zs-6Fd" userLabel="User ID Table View Cell">
-                                        <rect key="frame" x="0.0" y="108" width="375" height="71"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ChS-zs-6Fd" id="ExE-BP-f8c">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="71"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ox-ZU-YIa" userLabel="User ID Label">
-                                                    <rect key="frame" x="30" y="29" width="81" height="14"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
-                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="123 456 789" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rWF-Go-2jN" userLabel="User ID Text Field">
-                                                    <rect key="frame" x="30" y="31" width="315" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="Cbd-Jr-kMH"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="next"/>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                            <color key="value" red="0.5568627451" green="0.5568627451" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
-                                                </textField>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="33c-nU-tir" userLabel="Line View">
-                                                    <rect key="frame" x="30" y="70" width="315" height="1"/>
-                                                    <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="1" id="1I7-iR-p71"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="rWF-Go-2jN" secondAttribute="bottom" id="6ca-mW-Cho"/>
-                                                <constraint firstItem="3Ox-ZU-YIa" firstAttribute="leading" secondItem="rWF-Go-2jN" secondAttribute="leading" id="9Js-JG-AOr"/>
-                                                <constraint firstAttribute="trailing" secondItem="rWF-Go-2jN" secondAttribute="trailing" constant="30" id="VsT-5r-Tm6"/>
-                                                <constraint firstItem="rWF-Go-2jN" firstAttribute="trailing" secondItem="33c-nU-tir" secondAttribute="trailing" id="XTd-PA-FLf"/>
-                                                <constraint firstItem="33c-nU-tir" firstAttribute="bottom" secondItem="rWF-Go-2jN" secondAttribute="bottom" id="he2-ke-552"/>
-                                                <constraint firstItem="rWF-Go-2jN" firstAttribute="top" secondItem="3Ox-ZU-YIa" secondAttribute="bottom" constant="-12" id="oTx-zu-cDl"/>
-                                                <constraint firstItem="rWF-Go-2jN" firstAttribute="leading" secondItem="33c-nU-tir" secondAttribute="leading" id="obg-xU-kIe"/>
-                                                <constraint firstItem="rWF-Go-2jN" firstAttribute="leading" secondItem="ExE-BP-f8c" secondAttribute="leading" constant="30" id="xMa-rB-vBf"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="72" id="DOR-BF-fkq" userLabel="Nickname Table View Cell">
-                                        <rect key="frame" x="0.0" y="179" width="375" height="72"/>
+                                        <rect key="frame" x="0.0" y="108" width="375" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DOR-BF-fkq" id="K8d-yX-nhv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
@@ -139,7 +93,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="74" id="Ngi-be-MAy" userLabel="Connect Button Table View Cell">
-                                        <rect key="frame" x="0.0" y="251" width="375" height="74"/>
+                                        <rect key="frame" x="0.0" y="180" width="375" height="74"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ngi-be-MAy" id="gbm-g9-DTV">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="74"/>
@@ -174,7 +128,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="70" id="jfH-Kb-tQE" userLabel="Version Table View Cell">
-                                        <rect key="frame" x="0.0" y="325" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="254" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jfH-Kb-tQE" id="aMq-t7-rSE">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
@@ -209,10 +163,6 @@
                         <outlet property="nicknameLabelBottomMargin" destination="yXV-I6-FV7" id="waa-EJ-CVo"/>
                         <outlet property="nicknameLineView" destination="y2P-Lh-zUy" id="mxD-1I-K6x"/>
                         <outlet property="nicknameTextField" destination="z8B-cw-1yn" id="Ja0-0H-6F4"/>
-                        <outlet property="userIdLabel" destination="3Ox-ZU-YIa" id="Pdf-yo-3Lk"/>
-                        <outlet property="userIdLabelBottomMargin" destination="oTx-zu-cDl" id="RVB-DS-W3t"/>
-                        <outlet property="userIdLineView" destination="33c-nU-tir" id="mAg-Tu-nCU"/>
-                        <outlet property="userIdTextField" destination="rWF-Go-2jN" id="B1O-zH-W29"/>
                         <outlet property="versionLabel" destination="hJr-Sk-AIi" id="SQ0-VU-wDy"/>
                     </connections>
                 </tableViewController>

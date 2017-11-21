@@ -13,16 +13,12 @@ class ViewController: UITableViewController, UITextFieldDelegate {
   fileprivate static let minUserIdLength = 6
   fileprivate static let minNicknameLength = 3
   @IBOutlet weak var connectButton: UIButton!
-  @IBOutlet weak var userIdLabel: UILabel!
   @IBOutlet weak var nicknameLabel: UILabel!
-  @IBOutlet weak var userIdTextField: UITextField!
-  @IBOutlet weak var userIdLineView: UIView!
   @IBOutlet weak var nicknameTextField: UITextField!
   @IBOutlet weak var nicknameLineView: UIView!
   @IBOutlet weak var indicatorView: UIActivityIndicatorView!
   @IBOutlet weak var versionLabel: UILabel!
 
-  @IBOutlet weak var userIdLabelBottomMargin: NSLayoutConstraint!
   @IBOutlet weak var nicknameLabelBottomMargin: NSLayoutConstraint!
 
   override func viewDidLoad() {
@@ -37,24 +33,14 @@ class ViewController: UITableViewController, UITextFieldDelegate {
       self.versionLabel.text = version
     }
 
-    self.userIdTextField.delegate = self
     self.nicknameTextField.delegate = self
 
-    self.userIdLabel.alpha = 0
     self.nicknameLabel.alpha = 0
 
     let userId = UserDefaults.standard.object(forKey: "sendbird_user_id") as? String
     let userNickname = UserDefaults.standard.object(forKey: "sendbird_user_nickname") as? String
 
-    self.userIdLineView.backgroundColor = Constants.textFieldLineColorNormal()
     self.nicknameLineView.backgroundColor = Constants.textFieldLineColorNormal()
-
-    if userId != nil && (userId?.characters.count)! > 0 {
-      self.userIdLabelBottomMargin.constant = 0
-      self.view.setNeedsUpdateConstraints()
-      self.userIdLabel.alpha = 1
-      self.view.layoutIfNeeded()
-    }
 
     if userNickname != nil && (userNickname?.characters.count)! > 0 {
       self.nicknameLabelBottomMargin.constant = 0
@@ -63,38 +49,34 @@ class ViewController: UITableViewController, UITextFieldDelegate {
       self.view.layoutIfNeeded()
     }
 
-    self.userIdTextField.text = userId
     self.nicknameTextField.text = userNickname
 
     self.connectButton.setBackgroundImage(Utils.imageFromColor(color: Constants.connectButtonColor()), for: UIControlState.normal)
 
     self.indicatorView.hidesWhenStopped = true
 
-    self.userIdTextField.addTarget(self, action: #selector(userIdTextFieldDidChange(sender:)), for: UIControlEvents.editingChanged)
     self.nicknameTextField.addTarget(self, action: #selector(nicknameTextFieldDidChange(sender:)), for: UIControlEvents.editingChanged)
 
     if userId != nil && (userId?.characters.count)! > 0 && userNickname != nil && (userNickname?.characters.count)! > 0 {
       self.connect()
     }
 
-    addDoneButton()
   }
 
   @IBAction func clickConnectButton(_ sender: AnyObject) {
-    if userIdTextField.text == nil || nicknameTextField.text == nil {
+    if nicknameTextField.text == nil {
       return
     }
-    if userIdTextField.text!.count < ViewController.minUserIdLength || nicknameTextField.text!.count < ViewController.minNicknameLength {
+    if nicknameTextField.text!.count < ViewController.minNicknameLength {
       return
     }
     self.connect()
   }
 
   func connect() {
-    let trimmedUserId: String = (self.userIdTextField.text?.trimmingCharacters(in: NSCharacterSet.whitespaces))!
+    let trimmedUserId: String = UIDevice.current.identifierForVendor!.uuidString
     let trimmedNickname: String = (self.nicknameTextField.text?.trimmingCharacters(in: NSCharacterSet.whitespaces))!
     if trimmedUserId.characters.count > 0 && trimmedNickname.characters.count > 0 {
-      self.userIdTextField.isEnabled = false
       self.nicknameTextField.isEnabled = false
 
       self.indicatorView.startAnimating()
@@ -102,7 +84,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
       SBDMain.connect(withUserId: trimmedUserId, completionHandler: { user, error in
         if error != nil {
           DispatchQueue.main.async {
-            self.userIdTextField.isEnabled = true
             self.nicknameTextField.isEnabled = true
 
             self.indicatorView.stopAnimating()
@@ -134,7 +115,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
 
         SBDMain.updateCurrentUserInfo(withNickname: trimmedNickname, profileUrl: nil, completionHandler: { error in
           DispatchQueue.main.async {
-            self.userIdTextField.isEnabled = true
             self.nicknameTextField.isEnabled = true
 
             self.indicatorView.stopAnimating()
@@ -169,41 +149,6 @@ class ViewController: UITableViewController, UITextFieldDelegate {
     }
   }
 
-  func userIdTextFieldDidChange(sender: UITextField) {
-    if sender.text?.characters.count == 0 {
-      self.userIdLabelBottomMargin.constant = -12
-      self.view.setNeedsUpdateConstraints()
-      UIView.animate(withDuration: 0.1, animations: {
-        self.userIdLabel.alpha = 0
-        self.view.layoutIfNeeded()
-      })
-    } else {
-      self.userIdLabelBottomMargin.constant = 0
-      self.view.setNeedsUpdateConstraints()
-      UIView.animate(withDuration: 0.2, animations: {
-        self.userIdLabel.alpha = 1
-        self.view.layoutIfNeeded()
-      })
-    }
-  }
-
-  func addDoneButton() {
-    let keyboardToolbar = UIToolbar()
-    keyboardToolbar.sizeToFit()
-    let flexBarButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace,
-                                        target: nil, action: nil)
-    let doneBarButton = UIBarButtonItem(barButtonSystemItem: .done,
-                                        target: self, action: #selector(self.numberFieldDidReturn))
-    keyboardToolbar.items = [flexBarButton, doneBarButton]
-    userIdTextField.inputAccessoryView = keyboardToolbar
-  }
-
-  @objc private func numberFieldDidReturn() {
-    if userIdTextField.text != nil && userIdTextField.text!.count >= ViewController.minUserIdLength {
-      nicknameTextField.becomeFirstResponder()
-    }
-  }
-
   func nicknameTextFieldDidChange(sender: UITextField) {
     if sender.text?.characters.count == 0 {
       self.nicknameLabelBottomMargin.constant = -12
@@ -228,29 +173,19 @@ class ViewController: UITableViewController, UITextFieldDelegate {
 
   // MARK: UITextFieldDelegate
   func textFieldDidBeginEditing(_ textField: UITextField) {
-    if textField == self.userIdTextField {
-      self.userIdLineView.backgroundColor = Constants.textFieldLineColorSelected()
-    } else if textField == self.nicknameTextField {
+    if textField == self.nicknameTextField {
       self.nicknameLineView.backgroundColor = Constants.textFieldLineColorSelected()
     }
   }
 
   func textFieldDidEndEditing(_ textField: UITextField) {
-    if textField == self.userIdTextField {
-      self.userIdLineView.backgroundColor = Constants.textFieldLineColorNormal()
-    } else if textField == self.nicknameTextField {
+    if textField == self.nicknameTextField {
       self.nicknameLineView.backgroundColor = Constants.textFieldLineColorNormal()
     }
   }
 
   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    if textField == self.userIdTextField {
-      if textField.text != nil && textField.text!.count >= ViewController.minUserIdLength {
-        nicknameTextField.becomeFirstResponder()
-        return true
-      }
-      return false
-    } else if textField == self.nicknameTextField {
+    if textField == self.nicknameTextField {
       if textField.text != nil && textField.text!.count > ViewController.minNicknameLength {
         connect()
         return true
