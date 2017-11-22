@@ -11,7 +11,7 @@ import UIKit
 
 class AffectivaReactionDetectionModule {
   fileprivate static let sumThreshold = 200 as CGFloat
-  fileprivate static let iterationThreshold = 20 as CGFloat
+  fileprivate static let iterationThreshold = 50 as CGFloat
   private var detector: AFDXDetector?
   var emotionToLikelihood: [AffectivaEmotion: CGFloat] = [
     AffectivaEmotion.joy: 0,
