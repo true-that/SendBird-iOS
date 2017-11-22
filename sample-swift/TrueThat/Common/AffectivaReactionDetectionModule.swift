@@ -10,7 +10,8 @@ import Affdex
 import UIKit
 
 class AffectivaReactionDetectionModule {
-  fileprivate static let detectionThreshold = 200 as CGFloat
+  fileprivate static let sumThreshold = 200 as CGFloat
+  fileprivate static let iterationThreshold = 20 as CGFloat
   private var detector: AFDXDetector?
   var emotionToLikelihood: [AffectivaEmotion: CGFloat] = [
     AffectivaEmotion.joy: 0,
@@ -75,16 +76,19 @@ extension AffectivaReactionDetectionModule: AFDXDetectorDelegate {
     if hasResults != nil {
       for (_, face) in hasResults! {
         let affdexFace = face as! AFDXFace
-        // Convert detected image to our enum
-        emotionToLikelihood[.joy] = emotionToLikelihood[.joy]! + affdexFace.emotions.joy
-        emotionToLikelihood[.sadness] = emotionToLikelihood[.sadness]! +  affdexFace.emotions.sadness
-        emotionToLikelihood[.anger] = emotionToLikelihood[.anger]! +  affdexFace.emotions.anger
-        emotionToLikelihood[.surprise] = emotionToLikelihood[.surprise]! +  affdexFace.emotions.surprise
-        // Fear is harder to detect, and so it is amplified
-        emotionToLikelihood[.fear] = emotionToLikelihood[.fear]! +  affdexFace.emotions.fear * 3
-        // Disgust is too easy to detect, and so it is decreased
-        emotionToLikelihood[.disgust] = emotionToLikelihood[.disgust]! +  affdexFace.emotions.disgust / 2
-        let significantEnough = emotionToLikelihood.filter { $1 > AffectivaReactionDetectionModule.detectionThreshold }
+        let currentLikelihood = [
+          AffectivaEmotion.joy: affdexFace.emotions.joy,
+          AffectivaEmotion.surprise: affdexFace.emotions.surprise,
+          AffectivaEmotion.anger: affdexFace.emotions.anger,
+          // Fear is harder to detect, and so it is amplified
+          AffectivaEmotion.fear: affdexFace.emotions.fear * 3,
+          // Negative emotions are too easy to detect, and so it is decreased
+          AffectivaEmotion.sadness: affdexFace.emotions.sadness / 2,
+          AffectivaEmotion.disgust: affdexFace.emotions.disgust / 2,
+          ].filter{ $0.value > AffectivaReactionDetectionModule.iterationThreshold }
+        currentLikelihood.forEach{ emotionToLikelihood[$0.key] = emotionToLikelihood[$0.key]! + $0.value }
+
+        let significantEnough = emotionToLikelihood.filter { $1 > AffectivaReactionDetectionModule.sumThreshold }
         if significantEnough.isEmpty {
           return
         }
